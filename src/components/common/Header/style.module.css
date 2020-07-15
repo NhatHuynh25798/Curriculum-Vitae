@@ -1,0 +1,38 @@
+.headerWrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    width: 100%;
+    background-color: rgb(83, 83, 83) !important;
+    border-bottom: 0.125rem solid rgba(0, 0, 0, 0.1);
+}
+
+.headerTitle {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: 0.14px;
+}
+
+.headerTitle h3 {
+    color: var(--secondary);
+}
+
+.headerNav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.headerNav>li {
+    padding: 0 4px;
+}
+
+.headerNav>li>a {
+    color: var(--secondary);
+    font-size: 1.07rem;
+}
+
+.headerNav>li:hover>a:hover {
+    text-decoration: underline;
+}
