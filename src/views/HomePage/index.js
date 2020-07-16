@@ -34,21 +34,26 @@ const HomPage = () => {
                 <Typical
                   steps={[
                     'Hello,',
-                    1500,
+                    1000,
                     'Welcome to my CV!',
-                    2000,
+                    1500,
                     'My name is Huynh Trong Nhat!',
-                    2000,
+                    1500,
                     'I am a Frontend Developer!',
-                    2000,
+                    1500,
                   ]}
                   loop={Infinity}
-                  wrapper='p'
+                  wrapper='div'
+                  className={styles.helloContent}
                 />
               </Col>
 
               <Col lg={{ span: 24 }} className={styles.downloadButtonWrapper}>
-                <Button size='large' type='primary'>
+                <Button
+                  size='large'
+                  type='primary'
+                  className={styles.downloadButton}
+                >
                   Download CV
                 </Button>
               </Col>
