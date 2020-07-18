@@ -12,6 +12,8 @@ import {
   faMapMarkerAlt,
 } from '@fortawesome/free-solid-svg-icons'
 
+import { raiseInvoiceClicked } from '../../utils/helper'
+
 import { H1, H2, T1, T3 } from '../../components/common/Typography'
 import styles from './style.module.css'
 
@@ -159,9 +161,14 @@ const AboutMe = () => {
             >
               <ul className={styles.iconSocialWrapper}>
                 {mySocialNetwork?.map((item, index) => (
-                  <li key={index} className={styles.iconSocialItem}>
-                    <a
-                      href={item?.to}
+                  <li
+                    key={index}
+                    className={styles.iconSocialItem}
+                    onClick={() => {
+                      raiseInvoiceClicked(item?.to)
+                    }}
+                  >
+                    <span
                       className={styles.iconSocial}
                       onMouseMove={() => {
                         setVisible(index)
@@ -174,7 +181,7 @@ const AboutMe = () => {
                         {item?.icon}
                       </div>
                       <PopoverHover name={item?.name} id={index} />
-                    </a>
+                    </span>
                   </li>
                 ))}
               </ul>

@@ -1,106 +1,97 @@
 .aboutMeWrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  padding-bottom: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding-bottom: 4rem;
 }
 
 .iconSocialWrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50%;
-  margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin: 0;
 }
 
 .iconSocialItem {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
 }
 
 .iconSocialItem a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 6rem;
 }
 
 .iconSocialContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .iconSocial {
-  position: relative;
-  font-size: 5rem;
-  color: inherit;
+    position: relative;
+    font-size: 5rem;
+    color: inherit;
 }
 
 .iconSocial:hover {
-  color: inherit;
-  transform: scale(1.1);
-  transition: 0.3s;
+    color: inherit;
+    transform: scale(1.1);
+    transition: 0.3s;
 }
 
 .popoverHoverWrapper {
-  display: none;
+    display: none;
 }
 
 .popoverHover {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 90%;
-  padding: 0.3125rem;
-  font-size: 1.25rem;
-  text-align: center;
-  border-radius: 0.625rem;
-  color: var(--secondary);
-  background-color: rgb(83, 83, 83) !important;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    padding: 0.3125rem;
+    font-size: 1.25rem;
+    text-align: center;
+    border-radius: 0.625rem;
+    color: var(--secondary);
+    background-color: rgb(83, 83, 83) !important;
 }
 
-/* .popoverHover::before {
-    content: '';
-    position: absolute;
-    top: -0.3125rem;
-    right: 40%;
-    border-bottom: 0.3125rem solid rgb(83, 83, 83);
-    border-right: 0.3125rem solid transparent;
-    border-left: 0.3125rem solid transparent;
-} */
-
 .informationContainerWrapper {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  border-radius: 1.875rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    border-radius: 1.875rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .informationContainerWrapper:hover {
-  transform: scale(1.1);
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    transform: scale(1.1);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 .informationContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.875rem;
-  text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.675rem 0;
+    font-size: 1.875rem;
+    text-align: center;
 }
 
 .informationContent {
-  display: block;
-  margin: auto;
+    display: block;
+    margin: auto;
 }

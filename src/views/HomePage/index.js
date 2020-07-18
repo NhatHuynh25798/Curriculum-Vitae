@@ -2,10 +2,14 @@ import React from 'react'
 import { Row, Col, Button } from 'antd'
 import Typical from 'react-typical'
 
+import { raiseInvoiceClicked } from '../../utils/helper'
+
 import { H1 } from '../../components/common/Typography'
 import styles from './style.module.css'
 
 const HomPage = () => {
+  const url = 'https://google.com'
+
   return (
     <Row className={styles.starsContainerWrapper} justify='end'>
       <Col lg={{ offset: 1, span: 22 }}>
@@ -25,7 +29,7 @@ const HomPage = () => {
           <Col lg={{ span: 14 }} className={styles.homePageGreeting}>
             <Row justify='center'>
               <Col lg={{ span: 24 }}>
-                <H1 fontSize={'4.5rem'}>
+                <H1 fontSize={'4.5rem'} color='var(--secondary)'>
                   I&nbsp;<span>&lt;3</span>&nbsp; people who code
                 </H1>
               </Col>
@@ -53,6 +57,9 @@ const HomPage = () => {
                   size='large'
                   type='primary'
                   className={styles.downloadButton}
+                  onClick={() => {
+                    raiseInvoiceClicked(url)
+                  }}
                 >
                   Download CV
                 </Button>

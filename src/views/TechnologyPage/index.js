@@ -1,40 +1,125 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Row, Col, Timeline } from 'antd'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faHtml5,
+  faCss3,
+  faJs,
+  faReact,
+  faGit,
+} from '@fortawesome/free-brands-svg-icons'
+import { faRecycle } from '@fortawesome/free-solid-svg-icons'
 
-import { H1 } from '../../components/common/Typography'
+import { H1, B1 } from '../../components/common/Typography'
 import styles from './style.module.css'
 
 const TechnologyPage = () => {
+  const initialColor = '#595959'
+  const [color, setColor] = useState(initialColor)
+  const [changed, setChanged] = useState(null)
+
   const imagesTech = [
     {
-      title: 'html',
+      title: (
+        <div style={{ padding: '0 1rem' }}>
+          <B1 color={changed === 0 ? color : initialColor}>HTML</B1>
+        </div>
+      ),
       image: '/asset/images/html5.png',
-      color: '#F16528',
+      color: '#E44D26',
+      icon: (
+        <div
+          className={styles.iconDotTimeline}
+          style={{ background: changed === 0 ? color : initialColor }}
+        >
+          <FontAwesomeIcon icon={faHtml5} />
+        </div>
+      ),
     },
     {
-      title: 'css',
+      title: (
+        <div style={{ padding: '0 1rem' }}>
+          <B1 color={changed === 1 ? color : initialColor}>CSS</B1>
+        </div>
+      ),
       image: '/asset/images/css.png',
       color: '#379AD6',
+      icon: (
+        <div
+          className={styles.iconDotTimeline}
+          style={{ background: changed === 1 ? color : initialColor }}
+        >
+          <FontAwesomeIcon icon={faCss3} />
+        </div>
+      ),
     },
     {
-      title: 'javascript',
+      title: (
+        <div style={{ padding: '0 1rem' }}>
+          <B1 color={changed === 2 ? color : initialColor}>JAVASCRIPT</B1>
+        </div>
+      ),
       image: '/asset/images/javascript.png',
       color: '#F7DF1E',
+      icon: (
+        <div
+          className={styles.iconDotTimeline}
+          style={{ background: changed === 2 ? color : initialColor }}
+        >
+          <FontAwesomeIcon icon={faJs} />
+        </div>
+      ),
     },
     {
-      title: 'react',
+      title: (
+        <div style={{ padding: '0 1rem' }}>
+          <B1 color={changed === 3 ? color : initialColor}>REACT</B1>
+        </div>
+      ),
       image: '/asset/images/react.png',
       color: '#66E8FF',
+      icon: (
+        <div
+          className={styles.iconDotTimeline}
+          style={{ background: changed === 3 ? color : initialColor }}
+        >
+          <FontAwesomeIcon icon={faReact} />
+        </div>
+      ),
     },
     {
-      title: 'redux',
+      title: (
+        <div style={{ padding: '0 1rem' }}>
+          <B1 color={changed === 4 ? color : initialColor}>REDUX</B1>
+        </div>
+      ),
       image: '/asset/images/redux.png',
       color: '#764BBB',
+      icon: (
+        <div
+          className={styles.iconDotTimeline}
+          style={{ background: changed === 4 ? color : initialColor }}
+        >
+          <FontAwesomeIcon icon={faRecycle} />
+        </div>
+      ),
     },
     {
-      title: 'git',
+      title: (
+        <div style={{ padding: '0 1rem' }}>
+          <B1 color={changed === 5 ? color : initialColor}>GIT</B1>
+        </div>
+      ),
       image: '/asset/images/git.png',
       color: '#F34F29',
+      icon: (
+        <div
+          className={styles.iconDotTimeline}
+          style={{ background: changed === 5 ? color : initialColor }}
+        >
+          <FontAwesomeIcon icon={faGit} />
+        </div>
+      ),
     },
   ]
 
@@ -77,16 +162,29 @@ const TechnologyPage = () => {
             <Timeline mode='alternate' className={styles.timelineContainer}>
               {imagesTech?.map((item, index) => (
                 <Timeline.Item
-                  color={item?.color}
                   key={index}
+                  label={item?.title}
+                  dot={item?.icon}
+                  color={item?.color}
                   className={styles.timelineItem}
                 >
-                  <TechItem
-                    color={item?.color}
-                    data={item?.image}
-                    title={item?.title}
-                    margin={index % 2 === 0 ? false : true}
-                  />
+                  <div
+                    onMouseMove={() => {
+                      setChanged(index)
+                      setColor(item?.color)
+                    }}
+                    onMouseLeave={() => {
+                      setChanged(null)
+                      setColor(initialColor)
+                    }}
+                  >
+                    <TechItem
+                      color={item?.color}
+                      data={item?.image}
+                      title={item?.title}
+                      margin={index % 2 === 0 ? false : true}
+                    />
+                  </div>
                 </Timeline.Item>
               ))}
             </Timeline>

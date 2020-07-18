@@ -15,7 +15,9 @@ const HeaderCV = () => {
           <Row type='flex' align='middle' justify='space-between'>
             <Col lg={{ offset: 0, span: 4 }}>
               <Link to='/' className={styles.headerTitle}>
-                <H3 className={styles.logoTitle}>Nhat Huynh</H3>
+                <H3 className={styles.logoTitle} color='var(--secondary)'>
+                  Nhat Huynh
+                </H3>
               </Link>
             </Col>
 
@@ -37,7 +39,7 @@ const HeaderCV = () => {
                   <Link to='/'>Project</Link>
                 </li>
                 <li>
-                  <Link to='/'>Contact</Link>
+                  <Link to='/contact'>Contact</Link>
                 </li>
               </ul>
             </Col>

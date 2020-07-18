@@ -13,7 +13,7 @@ const ResumePage = () => {
         titleChildren: 'Web Developer',
         dateChildren: '11/2019 - 4/2020',
         contentChildren:
-          'Design and implement Webapp on clean vegetable food named Farmfresh by JSP.',
+          'Design and implement Webapp on fresh vegetable food named Farmfresh by JSP Servlet.',
       },
       {
         titleChildren: 'Front-end Developer',
