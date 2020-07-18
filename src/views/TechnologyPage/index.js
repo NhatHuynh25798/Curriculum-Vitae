@@ -1,7 +1,7 @@
 import React from 'react'
 import { Row, Col, Timeline } from 'antd'
 
-import { H1, H2, T1 } from '../../components/common/Typography'
+import { H1 } from '../../components/common/Typography'
 import styles from './style.module.css'
 
 const TechnologyPage = () => {
@@ -25,6 +25,11 @@ const TechnologyPage = () => {
       title: 'react',
       image: '/asset/images/react.png',
       color: '#66E8FF',
+    },
+    {
+      title: 'redux',
+      image: '/asset/images/redux.png',
+      color: '#764BBB',
     },
     {
       title: 'git',
@@ -64,14 +69,18 @@ const TechnologyPage = () => {
   return (
     <div className='container'>
       <Row justify='center'>
-        <Col lg={{ offset: 2, span: 20 }}>
+        <Col lg={{ offset: 2, span: 20 }} style={{ margin: '0' }}>
           <Row className='title'>
             <H1>Technology</H1>
           </Row>
-          <Row justify='center'>
-            <Timeline mode='alternate'>
+          <Row justify='center' style={{ padding: '1rem' }}>
+            <Timeline mode='alternate' className={styles.timelineContainer}>
               {imagesTech?.map((item, index) => (
-                <Timeline.Item color={item?.color} key={index}>
+                <Timeline.Item
+                  color={item?.color}
+                  key={index}
+                  className={styles.timelineItem}
+                >
                   <TechItem
                     color={item?.color}
                     data={item?.image}

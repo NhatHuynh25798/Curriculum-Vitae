@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Row, Col } from 'antd'
+import { Row, Col, Avatar } from 'antd'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faFacebook,
@@ -35,8 +35,7 @@ const AboutMe = () => {
     },
     {
       title: 'Address',
-      content:
-        '58/15, 5 street, Linh Trung ward, Thu Duc district, Ho Chi Minh City',
+      content: 'Linh Trung ward, Thu Duc district, Ho Chi Minh City',
       icon: (
         <FontAwesomeIcon icon={faMapMarkerAlt} className={styles.iconAwesome} />
       ),
@@ -72,14 +71,28 @@ const AboutMe = () => {
 
   return (
     <div className='container'>
-      <Row
-        justify='space-between'
-        style={styles.aboutMeWrapper}
-        gutter={[0, 16]}
-      >
-        <Col lg={{ offset: 2, span: 20 }}>
+      <Row justify='space-between' className={styles.aboutMeWrapper}>
+        <Col lg={{ offset: 2, span: 20 }} style={{ margin: '0' }}>
           <Row className='title'>
             <H1>About Me</H1>
+          </Row>
+          <Row justify='center'>
+            <Col
+              lg={{ span: 24 }}
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                padding: '1rem 0',
+              }}
+            >
+              <Avatar
+                src='./asset/images/avatar.jpg'
+                size={200}
+                style={{
+                  border: '0.1875rem solid #dfdfdf',
+                }}
+              />
+            </Col>
           </Row>
           <Row justify='center' gutter={[0, 16]}>
             <Col lg={{ span: 24 }}>
@@ -108,13 +121,21 @@ const AboutMe = () => {
                     style={{ display: 'flex', margin: '1rem 0' }}
                     className={styles.informationContainerWrapper}
                   >
-                    <div className={styles.informationContainer}>
-                      {item?.icon}
-                    </div>
-                    <div className={styles.informationContent}>
-                      <T3>{item?.title}:</T3>
-                      <br />
-                      <T3>{item?.content}</T3>
+                    <div
+                      style={{
+                        margin: '0 auto',
+                        padding: '0.75rem',
+                      }}
+                    >
+                      <div className={styles.informationContainer}>
+                        {item?.icon}
+                      </div>
+                      <div className={styles.informationContent}>
+                        <T3>
+                          {item?.title}: &nbsp;
+                          {item?.content}
+                        </T3>
+                      </div>
                     </div>
                   </Col>
                 ))}

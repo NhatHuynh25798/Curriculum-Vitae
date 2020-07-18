@@ -10,7 +10,7 @@ import './App.css'
 
 const { Content } = Layout
 
-function App() {
+const App = () => {
   return (
     <Suspense
       fallback={
