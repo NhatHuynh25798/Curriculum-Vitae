@@ -38,6 +38,7 @@
 
 .iconSocial {
     position: relative;
+    width: 100%;
     font-size: 5rem;
     color: inherit;
 }
@@ -50,16 +51,17 @@
 
 .popoverHoverWrapper {
     display: none;
+    width: 100%;
 }
 
 .popoverHover {
     position: absolute;
-    top: 100%;
+    top: 120%;
     right: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 90%;
+    width: 100%;
     padding: 0.3125rem;
     font-size: 1.25rem;
     text-align: center;
