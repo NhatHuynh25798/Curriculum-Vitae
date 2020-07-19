@@ -169,6 +169,7 @@ const TechnologyPage = () => {
                   className={styles.timelineItem}
                 >
                   <div
+                    style={{ position: 'relative' }}
                     onMouseMove={() => {
                       setChanged(index)
                       setColor(item?.color)

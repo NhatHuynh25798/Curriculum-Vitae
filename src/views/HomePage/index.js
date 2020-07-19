@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import { Row, Col, Button } from 'antd'
 import Typical from 'react-typical'
+import lottie from 'lottie-web'
 
+import animation from '../../react-logo.json'
 import { raiseInvoiceClicked } from '../../utils/helper'
 
 import { H1 } from '../../components/common/Typography'
@@ -9,9 +11,32 @@ import styles from './style.module.css'
 
 const HomPage = () => {
   const url = 'https://google.com'
+  const element = useRef(null)
+
+  useEffect(() => {
+    if (element) {
+      lottie.loadAnimation({
+        container: element.current,
+        renderer: 'svg',
+        loop: false,
+        animationData: animation,
+      })
+    }
+  }, [])
 
   return (
     <Row className={styles.starsContainerWrapper} justify='end'>
+      <div
+        id='animation'
+        ref={element}
+        style={{
+          position: 'absolute',
+          top: '5rem',
+          left: '5em',
+          width: '10rem',
+          height: '10rem',
+        }}
+      />
       <Col lg={{ offset: 1, span: 22 }}>
         <Row className={styles.startsContainer}>
           <div id={styles.stars}></div>

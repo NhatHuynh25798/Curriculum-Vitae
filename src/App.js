@@ -28,7 +28,18 @@ const App = () => {
     >
       <Layout>
         <Header />
-
+        {/* <div
+          id='animation'
+          ref={element.current}
+          style={{
+            position: 'absolute',
+            top: '4rem',
+            left: '0',
+            width: '4rem',
+            height: '4rem',
+            zIndex: '1000',
+          }}
+        /> */}
         <Content
           style={{
             marginTop: '4rem',

@@ -1,16 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Row, Col, Avatar } from 'antd'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faFacebook,
-  faGithub,
-  faInstagram,
-} from '@fortawesome/free-brands-svg-icons'
-import {
-  faMobileAlt,
-  faEnvelope,
-  faMapMarkerAlt,
-} from '@fortawesome/free-solid-svg-icons'
+import lottie from 'lottie-web'
+
+import facebookAnimation from '../../facebook-logo.json'
+import instagramAnimation from '../../instagram-logo.json'
+import gitHubAnimation from '../../github-logo.json'
+import phoneAnimation from '../../phone.json'
+import markerAnimation from '../../marker.json'
+import emailAnimation from '../../email.json'
 
 import { raiseInvoiceClicked } from '../../utils/helper'
 
@@ -20,26 +17,102 @@ import styles from './style.module.css'
 const AboutMe = () => {
   const [visible, setVisible] = useState(null)
 
+  const facebookElement = useRef(null)
+  const instagramElement = useRef(null)
+  const gitHubElement = useRef(null)
+  const phoneElement = useRef(null)
+  const markerElement = useRef(null)
+  const emailElement = useRef(null)
+
+  useEffect(() => {
+    if (facebookElement) {
+      lottie.loadAnimation({
+        container: facebookElement.current,
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        animationData: facebookAnimation,
+      })
+      if (instagramElement) {
+        lottie.loadAnimation({
+          container: instagramElement.current,
+          renderer: 'svg',
+          loop: true,
+          autoplay: true,
+          animationData: instagramAnimation,
+        })
+      }
+      if (gitHubElement) {
+        lottie.loadAnimation({
+          container: gitHubElement.current,
+          renderer: 'svg',
+          loop: true,
+          autoplay: true,
+          animationData: gitHubAnimation,
+        })
+      }
+      if (phoneElement) {
+        lottie.loadAnimation({
+          container: phoneElement.current,
+          renderer: 'sgv',
+          loop: true,
+          autoplay: true,
+          animationData: phoneAnimation,
+        })
+      }
+      if (markerElement) {
+        lottie.loadAnimation({
+          container: markerElement.current,
+          renderer: 'svg',
+          loop: true,
+          autoplay: true,
+          animationData: markerAnimation,
+        })
+      }
+      if (emailElement) {
+        lottie.loadAnimation({
+          container: emailElement.current,
+          renderer: 'sgv',
+          loop: true,
+          autoplay: true,
+          animationData: emailAnimation,
+        })
+      }
+    }
+  }, [])
+
   const information = [
     {
       title: 'Phone',
       content: '+84-343661688',
       icon: (
-        <FontAwesomeIcon icon={faMobileAlt} className={styles.iconAwesome} />
+        <div
+          id='phone-element'
+          ref={phoneElement}
+          style={{ position: 'relative', width: '4rem', height: '4rem' }}
+        />
       ),
     },
     {
       title: 'Email',
       content: 'nhathuynh25798@gmail.com',
       icon: (
-        <FontAwesomeIcon icon={faEnvelope} className={styles.iconAwesome} />
+        <div
+          id='email-element'
+          ref={emailElement}
+          style={{ position: 'relative', width: '4rem', height: '4rem' }}
+        />
       ),
     },
     {
       title: 'Address',
       content: 'Linh Trung ward, Thu Duc district, Ho Chi Minh City',
       icon: (
-        <FontAwesomeIcon icon={faMapMarkerAlt} className={styles.iconAwesome} />
+        <div
+          id='market-element'
+          ref={markerElement}
+          style={{ position: 'relative', width: '4rem', height: '4rem' }}
+        />
       ),
     },
   ]
@@ -48,17 +121,35 @@ const AboutMe = () => {
     {
       name: 'Facebook',
       to: 'https://www.facebook.com/huynh.trongnhat',
-      icon: <FontAwesomeIcon icon={faFacebook} />,
+      icon: (
+        <div
+          id='facebook-animation'
+          ref={facebookElement}
+          style={{ width: '6rem', height: '6rem' }}
+        />
+      ),
     },
     {
       name: 'Instagram',
       to: 'https://www.instagram.com/huynhtrongnhat/',
-      icon: <FontAwesomeIcon icon={faInstagram} />,
+      icon: (
+        <div
+          id='instagram-animation'
+          ref={instagramElement}
+          style={{ width: '7rem', height: '7rem' }}
+        />
+      ),
     },
     {
       name: 'GitHub',
       to: 'https://github.com/NhatHuynh25798',
-      icon: <FontAwesomeIcon icon={faGithub} />,
+      icon: (
+        <div
+          id='gitHub-animation'
+          ref={gitHubElement}
+          style={{ width: '5rem', height: '5rem' }}
+        />
+      ),
     },
   ]
 
