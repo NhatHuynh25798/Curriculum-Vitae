@@ -18,108 +18,61 @@ const TechnologyPage = () => {
   const [color, setColor] = useState(initialColor)
   const [changed, setChanged] = useState(null)
 
+  const TitleTech = ({ value, name }) => {
+    return (
+      <div style={{ padding: '0 1rem' }}>
+        <B1 color={changed === value ? color : initialColor}>{name}</B1>
+      </div>
+    )
+  }
+
+  const IconTech = ({ value, icon }) => {
+    return (
+      <div
+        className={styles.iconDotTimeline}
+        style={{ background: changed === value ? color : initialColor }}
+      >
+        <FontAwesomeIcon icon={icon} />
+      </div>
+    )
+  }
+
   const imagesTech = [
     {
-      title: (
-        <div style={{ padding: '0 1rem' }}>
-          <B1 color={changed === 0 ? color : initialColor}>HTML</B1>
-        </div>
-      ),
+      title: <TitleTech value={0} name='HTML' />,
       image: '/asset/images/html5.png',
       color: '#E44D26',
-      icon: (
-        <div
-          className={styles.iconDotTimeline}
-          style={{ background: changed === 0 ? color : initialColor }}
-        >
-          <FontAwesomeIcon icon={faHtml5} />
-        </div>
-      ),
+      icon: <IconTech value={0} icon={faHtml5} />,
     },
     {
-      title: (
-        <div style={{ padding: '0 1rem' }}>
-          <B1 color={changed === 1 ? color : initialColor}>CSS</B1>
-        </div>
-      ),
+      title: <TitleTech value={1} name='CSS' />,
       image: '/asset/images/css.png',
       color: '#379AD6',
-      icon: (
-        <div
-          className={styles.iconDotTimeline}
-          style={{ background: changed === 1 ? color : initialColor }}
-        >
-          <FontAwesomeIcon icon={faCss3} />
-        </div>
-      ),
+      icon: <IconTech value={1} icon={faCss3} />,
     },
     {
-      title: (
-        <div style={{ padding: '0 1rem' }}>
-          <B1 color={changed === 2 ? color : initialColor}>JAVASCRIPT</B1>
-        </div>
-      ),
+      title: <TitleTech value={2} name='JAVASCRIPT' />,
       image: '/asset/images/javascript.png',
       color: '#F7DF1E',
-      icon: (
-        <div
-          className={styles.iconDotTimeline}
-          style={{ background: changed === 2 ? color : initialColor }}
-        >
-          <FontAwesomeIcon icon={faJs} />
-        </div>
-      ),
+      icon: <IconTech value={2} icon={faJs} />,
     },
     {
-      title: (
-        <div style={{ padding: '0 1rem' }}>
-          <B1 color={changed === 3 ? color : initialColor}>REACT</B1>
-        </div>
-      ),
+      title: <TitleTech value={3} name='REACT' />,
       image: '/asset/images/react.png',
       color: '#66E8FF',
-      icon: (
-        <div
-          className={styles.iconDotTimeline}
-          style={{ background: changed === 3 ? color : initialColor }}
-        >
-          <FontAwesomeIcon icon={faReact} />
-        </div>
-      ),
+      icon: <IconTech value={3} icon={faReact} />,
     },
     {
-      title: (
-        <div style={{ padding: '0 1rem' }}>
-          <B1 color={changed === 4 ? color : initialColor}>REDUX</B1>
-        </div>
-      ),
+      title: <TitleTech value={4} name='REDUX' />,
       image: '/asset/images/redux.png',
       color: '#764BBB',
-      icon: (
-        <div
-          className={styles.iconDotTimeline}
-          style={{ background: changed === 4 ? color : initialColor }}
-        >
-          <FontAwesomeIcon icon={faRecycle} />
-        </div>
-      ),
+      icon: <IconTech value={4} icon={faRecycle} />,
     },
     {
-      title: (
-        <div style={{ padding: '0 1rem' }}>
-          <B1 color={changed === 5 ? color : initialColor}>GIT</B1>
-        </div>
-      ),
+      title: <TitleTech value={5} name='GIT' />,
       image: '/asset/images/git.png',
       color: '#F34F29',
-      icon: (
-        <div
-          className={styles.iconDotTimeline}
-          style={{ background: changed === 5 ? color : initialColor }}
-        >
-          <FontAwesomeIcon icon={faGit} />
-        </div>
-      ),
+      icon: <IconTech value={5} icon={faGit} />,
     },
   ]
 

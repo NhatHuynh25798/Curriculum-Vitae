@@ -2,10 +2,10 @@ import React, { useRef, useEffect } from 'react'
 import { Row, Col } from 'antd'
 import lottie from 'lottie-web'
 
-import animation from '../../react-logo.json'
+import animation from '../../JsonFile/react-logo.json'
 
 import { H1 } from '../../components/common/Typography'
-import styles from './style.module.css'
+// import styles from './style.module.css'
 
 const ContactPage = () => {
   const element = useRef(null)

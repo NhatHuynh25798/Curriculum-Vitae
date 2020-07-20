@@ -3,8 +3,10 @@ import { Row, Col, Button } from 'antd'
 import Typical from 'react-typical'
 import lottie from 'lottie-web'
 
-import animation from '../../react-logo.json'
-import { raiseInvoiceClicked } from '../../utils/helper'
+import animation from '../../JsonFile/react-logo.json'
+import earthAnimation from '../../JsonFile/earth.json'
+
+import { raiseInvoiceClicked, loadAnimations } from '../../utils/helper'
 
 import { H1 } from '../../components/common/Typography'
 import styles from './style.module.css'
@@ -12,27 +14,33 @@ import styles from './style.module.css'
 const HomPage = () => {
   const url = 'https://google.com'
   const element = useRef(null)
+  const earthElement = useRef(null)
 
   useEffect(() => {
-    if (element) {
-      lottie.loadAnimation({
-        container: element.current,
-        renderer: 'svg',
-        loop: false,
-        animationData: animation,
-      })
-    }
+    loadAnimations(lottie, element, animation, false)
+    loadAnimations(lottie, earthElement, earthAnimation)
   }, [])
 
   return (
     <Row className={styles.starsContainerWrapper} justify='end'>
       <div
+        id='earthAnimation'
+        ref={earthElement}
+        style={{
+          position: 'fixed',
+          top: '35%',
+          left: '27%',
+          width: '8rem',
+          height: '8rem',
+        }}
+      />
+      <div
         id='animation'
         ref={element}
         style={{
           position: 'absolute',
-          top: '5rem',
-          left: '5em',
+          top: '5%',
+          left: '5%',
           width: '10rem',
           height: '10rem',
         }}

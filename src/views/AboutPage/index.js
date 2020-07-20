@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { Row, Col, Avatar } from 'antd'
+import { Row, Col } from 'antd'
 import lottie from 'lottie-web'
 
-import facebookAnimation from '../../facebook-logo.json'
-import instagramAnimation from '../../instagram-logo.json'
-import gitHubAnimation from '../../github-logo.json'
-import phoneAnimation from '../../phone.json'
-import markerAnimation from '../../marker.json'
-import emailAnimation from '../../email.json'
+import facebookAnimation from '../../JsonFile/facebook-logo.json'
+import instagramAnimation from '../../JsonFile/instagram-logo.json'
+import gitHubAnimation from '../../JsonFile/github-logo.json'
+import phoneAnimation from '../../JsonFile/phone.json'
+import markerAnimation from '../../JsonFile/marker.json'
+import emailAnimation from '../../JsonFile/email.json'
 
-import { raiseInvoiceClicked } from '../../utils/helper'
+import { raiseInvoiceClicked, loadAnimations } from '../../utils/helper'
 
 import { H1, H2, T1, T3 } from '../../components/common/Typography'
 import styles from './style.module.css'
@@ -25,60 +25,12 @@ const AboutMe = () => {
   const emailElement = useRef(null)
 
   useEffect(() => {
-    if (facebookElement) {
-      lottie.loadAnimation({
-        container: facebookElement.current,
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        animationData: facebookAnimation,
-      })
-      if (instagramElement) {
-        lottie.loadAnimation({
-          container: instagramElement.current,
-          renderer: 'svg',
-          loop: true,
-          autoplay: true,
-          animationData: instagramAnimation,
-        })
-      }
-      if (gitHubElement) {
-        lottie.loadAnimation({
-          container: gitHubElement.current,
-          renderer: 'svg',
-          loop: true,
-          autoplay: true,
-          animationData: gitHubAnimation,
-        })
-      }
-      if (phoneElement) {
-        lottie.loadAnimation({
-          container: phoneElement.current,
-          renderer: 'sgv',
-          loop: true,
-          autoplay: true,
-          animationData: phoneAnimation,
-        })
-      }
-      if (markerElement) {
-        lottie.loadAnimation({
-          container: markerElement.current,
-          renderer: 'svg',
-          loop: true,
-          autoplay: true,
-          animationData: markerAnimation,
-        })
-      }
-      if (emailElement) {
-        lottie.loadAnimation({
-          container: emailElement.current,
-          renderer: 'sgv',
-          loop: true,
-          autoplay: true,
-          animationData: emailAnimation,
-        })
-      }
-    }
+    loadAnimations(lottie, facebookElement, facebookAnimation)
+    loadAnimations(lottie, instagramElement, instagramAnimation)
+    loadAnimations(lottie, gitHubElement, gitHubAnimation)
+    loadAnimations(lottie, phoneElement, phoneAnimation)
+    loadAnimations(lottie, markerElement, markerAnimation)
+    loadAnimations(lottie, emailElement, emailAnimation)
   }, [])
 
   const information = [
@@ -169,7 +121,7 @@ const AboutMe = () => {
           <Row className='title'>
             <H1>About Me</H1>
           </Row>
-          <Row justify='center'>
+          {/* <Row justify='center'>
             <Col
               lg={{ span: 24 }}
               style={{
@@ -186,7 +138,7 @@ const AboutMe = () => {
                 }}
               />
             </Col>
-          </Row>
+          </Row> */}
           <Row justify='center' gutter={[0, 16]}>
             <Col lg={{ span: 24 }}>
               <T1>

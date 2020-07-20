@@ -7,6 +7,7 @@ const AboutPage = lazy(() => import('./views/AboutPage'))
 const ResumePage = lazy(() => import('./views/ResumePage'))
 const TechnologyPage = lazy(() => import('./views/TechnologyPage'))
 const ContactPage = lazy(() => import('./views/ContactPage'))
+const ProjectPage = lazy(() => import('./views/ProjectPage'))
 
 const PageNotPound = () => (
   <Result
@@ -25,6 +26,7 @@ const Routes = () => (
     <ResumePage path='/resume' />
     <TechnologyPage path='/technology' />
     <ContactPage path='/contact' />
+    <ProjectPage path='/project' />
     <PageNotPound path='*' />
   </Router>
 )

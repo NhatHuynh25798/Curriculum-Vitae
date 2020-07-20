@@ -36,7 +36,7 @@ const HeaderCV = () => {
                   <Link to='/technology'>Technology</Link>
                 </li>
                 <li>
-                  <Link to='/'>Project</Link>
+                  <Link to='/project'>Project</Link>
                 </li>
                 <li>
                   <Link to='/contact'>Contact</Link>
