@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState } from 'react'
 import { Row, Col } from 'antd'
-import lottie from 'lottie-web'
 
-import facebookAnimation from '../../JsonFile/facebook-logo.json'
+import Lottie from '../../components/common/Lottie'
+import facebookAnimation from '../../JsonFile/facebook-logo02.json'
 import instagramAnimation from '../../JsonFile/instagram-logo.json'
 import gitHubAnimation from '../../JsonFile/github-logo.json'
 import phoneAnimation from '../../JsonFile/phone.json'
@@ -17,31 +17,15 @@ import styles from './style.module.css'
 const AboutMe = () => {
   const [visible, setVisible] = useState(null)
 
-  const facebookElement = useRef(null)
-  const instagramElement = useRef(null)
-  const gitHubElement = useRef(null)
-  const phoneElement = useRef(null)
-  const markerElement = useRef(null)
-  const emailElement = useRef(null)
-
-  useEffect(() => {
-    loadAnimations(lottie, facebookElement, facebookAnimation)
-    loadAnimations(lottie, instagramElement, instagramAnimation)
-    loadAnimations(lottie, gitHubElement, gitHubAnimation)
-    loadAnimations(lottie, phoneElement, phoneAnimation)
-    loadAnimations(lottie, markerElement, markerAnimation)
-    loadAnimations(lottie, emailElement, emailAnimation)
-  }, [])
-
   const information = [
     {
       title: 'Phone',
       content: '+84-343661688',
       icon: (
-        <div
-          id='phone-element'
-          ref={phoneElement}
-          style={{ position: 'relative', width: '4rem', height: '4rem' }}
+        <Lottie
+          options={loadAnimations(phoneAnimation)}
+          height='4rem'
+          width='4rem'
         />
       ),
     },
@@ -49,10 +33,10 @@ const AboutMe = () => {
       title: 'Email',
       content: 'nhathuynh25798@gmail.com',
       icon: (
-        <div
-          id='email-element'
-          ref={emailElement}
-          style={{ position: 'relative', width: '4rem', height: '4rem' }}
+        <Lottie
+          options={loadAnimations(emailAnimation)}
+          height='4rem'
+          width='4rem'
         />
       ),
     },
@@ -60,10 +44,10 @@ const AboutMe = () => {
       title: 'Address',
       content: 'Linh Trung ward, Thu Duc district, Ho Chi Minh City',
       icon: (
-        <div
-          id='market-element'
-          ref={markerElement}
-          style={{ position: 'relative', width: '4rem', height: '4rem' }}
+        <Lottie
+          options={loadAnimations(markerAnimation)}
+          height='4rem'
+          width='4rem'
         />
       ),
     },
@@ -74,10 +58,11 @@ const AboutMe = () => {
       name: 'Facebook',
       to: 'https://www.facebook.com/huynh.trongnhat',
       icon: (
-        <div
-          id='facebook-animation'
-          ref={facebookElement}
-          style={{ width: '6rem', height: '6rem' }}
+        <Lottie
+          options={loadAnimations(facebookAnimation, null, false)}
+          height='7.5rem'
+          width='7.5rem'
+          isStopped={visible === 0 ? false : true}
         />
       ),
     },
@@ -85,10 +70,11 @@ const AboutMe = () => {
       name: 'Instagram',
       to: 'https://www.instagram.com/huynhtrongnhat/',
       icon: (
-        <div
-          id='instagram-animation'
-          ref={instagramElement}
-          style={{ width: '7rem', height: '7rem' }}
+        <Lottie
+          options={loadAnimations(instagramAnimation, null, false)}
+          height='7rem'
+          width='7rem'
+          isStopped={visible === 1 ? false : true}
         />
       ),
     },
@@ -96,10 +82,11 @@ const AboutMe = () => {
       name: 'GitHub',
       to: 'https://github.com/NhatHuynh25798',
       icon: (
-        <div
-          id='gitHub-animation'
-          ref={gitHubElement}
-          style={{ width: '5rem', height: '5rem' }}
+        <Lottie
+          options={loadAnimations(gitHubAnimation, null, false)}
+          height='5rem'
+          width='5rem'
+          isStopped={visible === 2 ? false : true}
         />
       ),
     },
@@ -121,24 +108,6 @@ const AboutMe = () => {
           <Row className='title'>
             <H1>About Me</H1>
           </Row>
-          {/* <Row justify='center'>
-            <Col
-              lg={{ span: 24 }}
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-                padding: '1rem 0',
-              }}
-            >
-              <Avatar
-                src='./asset/images/avatar.jpg'
-                size={200}
-                style={{
-                  border: '0.1875rem solid #dfdfdf',
-                }}
-              />
-            </Col>
-          </Row> */}
           <Row justify='center' gutter={[0, 16]}>
             <Col lg={{ span: 24 }}>
               <T1>

@@ -1,38 +1,13 @@
-import React, { useEffect, useRef } from 'react'
-// import { Row, Col } from 'antd'
-import lottie from 'lottie-web'
+import React from 'react'
 
+import Lottie from '../../components/common/Lottie'
 import pageNotFoundAnimation from '../../JsonFile/404page.json'
-
-// import { H1 } from '../../components/common/Typography'
-// import styles from './style.module.css'
+import { loadAnimations } from '../../utils/helper'
 
 const ProjectPage = () => {
-  const pageNotFoundElement = useRef(null)
-
-  useEffect(() => {
-    if (pageNotFoundElement) {
-      lottie.loadAnimation({
-        container: pageNotFoundElement.current,
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        animationData: pageNotFoundAnimation,
-      })
-    }
-  }, [])
   return (
-    <div
-      style={{
-        overflowY: 'hidden',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        minWidth: '100vh',
-        maxHeight: '100vh',
-      }}
-    >
-      <div id='page-not-found-element' ref={pageNotFoundElement} />
+    <div className='container'>
+      <Lottie options={loadAnimations(pageNotFoundAnimation)} />
     </div>
   )
 }

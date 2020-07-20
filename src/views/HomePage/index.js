@@ -1,8 +1,8 @@
-import React, { useRef, useEffect } from 'react'
+import React from 'react'
 import { Row, Col, Button } from 'antd'
 import Typical from 'react-typical'
-import lottie from 'lottie-web'
 
+import Lottie from '../../components/common/Lottie'
 import animation from '../../JsonFile/react-logo.json'
 import earthAnimation from '../../JsonFile/earth.json'
 
@@ -13,38 +13,35 @@ import styles from './style.module.css'
 
 const HomPage = () => {
   const url = 'https://google.com'
-  const element = useRef(null)
-  const earthElement = useRef(null)
-
-  useEffect(() => {
-    loadAnimations(lottie, element, animation, false)
-    loadAnimations(lottie, earthElement, earthAnimation)
-  }, [])
 
   return (
     <Row className={styles.starsContainerWrapper} justify='end'>
       <div
-        id='earthAnimation'
-        ref={earthElement}
         style={{
           position: 'fixed',
           top: '35%',
           left: '27%',
-          width: '8rem',
-          height: '8rem',
         }}
-      />
+      >
+        <Lottie
+          options={loadAnimations(earthAnimation)}
+          height='8rem'
+          width='8rem'
+        />
+      </div>
       <div
-        id='animation'
-        ref={element}
         style={{
-          position: 'absolute',
-          top: '5%',
+          position: 'fixed',
+          top: '10%',
           left: '5%',
-          width: '10rem',
-          height: '10rem',
         }}
-      />
+      >
+        <Lottie
+          options={loadAnimations(animation, false)}
+          height='10rem'
+          width='10rem'
+        />
+      </div>
       <Col lg={{ offset: 1, span: 22 }}>
         <Row className={styles.startsContainer}>
           <div id={styles.stars}></div>
