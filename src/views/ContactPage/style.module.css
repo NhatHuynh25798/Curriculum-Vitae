@@ -29,5 +29,6 @@
 }
 
 .contactButton:hover {
+    color: var(--secondary);
     background: rgba(28, 28, 28, 0.97);
 }

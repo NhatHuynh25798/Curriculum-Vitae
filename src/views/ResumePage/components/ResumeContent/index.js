@@ -6,7 +6,7 @@ import styles from './style.module.css'
 
 const ResumeContent = (props) => {
   const { data } = props
-  console.log(data)
+
   return (
     <Row justify='center' className={styles.resumeContentContainerWrapper}>
       <Col lg={{ offset: 2, span: 20 }}>

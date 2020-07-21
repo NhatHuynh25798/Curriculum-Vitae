@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Row, Col } from 'antd'
 
 import Lottie from '../../components/common/Lottie'
-import facebookAnimation from '../../JsonFile/facebook-logo02.json'
+import facebookAnimation from '../../JsonFile/facebook-logo.json'
 import instagramAnimation from '../../JsonFile/instagram-logo.json'
 import gitHubAnimation from '../../JsonFile/github-logo.json'
 import phoneAnimation from '../../JsonFile/phone.json'

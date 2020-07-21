@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import lottie from 'lottie-web'
 
-export default class Lottie extends React.Component {
-  componentDidMount() {
-    const { options, eventListeners } = this.props
+const Lottie = (props) => {
+  const el = useRef(null)
+  const anim = useRef(null)
+
+  useEffect(() => {
+    const { options, eventListeners } = props
 
     const {
       loop,
@@ -14,8 +17,8 @@ export default class Lottie extends React.Component {
       segments,
     } = options
 
-    this.options = {
-      container: this.el,
+    const newOptions = {
+      container: el.current,
       renderer: 'svg',
       loop: loop !== false,
       autoplay: autoplay !== false,
@@ -24,145 +27,138 @@ export default class Lottie extends React.Component {
       rendererSettings,
     }
 
-    this.options = { ...this.options, ...options }
+    const sumOptions = { ...options, ...newOptions }
 
-    this.anim = lottie.loadAnimation(this.options)
-    this.registerEvents(eventListeners)
-  }
+    anim.current = lottie.loadAnimation(sumOptions)
+    registerEvents(eventListeners)
 
-  componentDidUpdate() {
-    if (this.props.isStopped) {
-      this.stop()
-    } else if (this.props.segments) {
-      this.playSegments()
+    if (props.isStopped) {
+      stop()
+    } else if (props.segments) {
+      playSegments()
     } else {
-      this.play()
+      play()
     }
 
-    this.pause()
-    this.setSpeed()
-    this.setDirection()
+    pause()
+    setSpeed()
+    setDirection()
+    return () => {
+      deRegisterEvents(props.eventListeners)
+      destroy()
+      options.animationData = null
+      anim.current = null
+    }
+  })
+
+  const setSpeed = () => {
+    anim.current.setSpeed(props.speed)
   }
 
-  componentWillUnmount() {
-    this.deRegisterEvents(this.props.eventListeners)
-    this.destroy()
-    this.options.animationData = null
-    this.anim = null
+  const setDirection = () => {
+    anim.current.setDirection(props.direction)
   }
 
-  setSpeed() {
-    this.anim.setSpeed(this.props.speed)
+  const play = () => {
+    anim.current.play()
   }
 
-  setDirection() {
-    this.anim.setDirection(this.props.direction)
+  const playSegments = () => {
+    anim.current.playSegments(props.segments)
   }
 
-  play() {
-    this.anim.play()
+  const stop = () => {
+    anim.current.stop()
   }
 
-  playSegments() {
-    this.anim.playSegments(this.props.segments)
-  }
-
-  stop() {
-    this.anim.stop()
-  }
-
-  pause() {
-    if (this.props.isPaused && !this.anim.isPaused) {
-      this.anim.pause()
-    } else if (!this.props.isPaused && this.anim.isPaused) {
-      this.anim.pause()
+  const pause = () => {
+    if (props.isPaused && !anim.isPaused) {
+      anim.current.pause()
+    } else if (!props.isPaused && anim.isPaused) {
+      anim.current.pause()
     }
   }
 
-  destroy() {
-    this.anim.destroy()
+  const destroy = () => {
+    anim.current.destroy()
   }
 
-  registerEvents(eventListeners) {
+  const registerEvents = (eventListeners) => {
     eventListeners.forEach((eventListener) => {
-      this.anim.addEventListener(
+      anim.current.addEventListener(
         eventListener.eventName,
         eventListener.callback
       )
     })
   }
 
-  deRegisterEvents(eventListeners) {
+  const deRegisterEvents = (eventListeners) => {
     eventListeners.forEach((eventListener) => {
-      this.anim.removeEventListener(
+      anim.current.removeEventListener(
         eventListener.eventName,
         eventListener.callback
       )
     })
   }
 
-  handleClickToPause = () => {
+  const handleClickToPause = () => {
     // The pause() method is for handling pausing by passing a prop isPaused
     // This method is for handling the ability to pause by clicking on the animation
-    if (this.anim.isPaused) {
-      this.anim.play()
+    if (anim.current.isPaused) {
+      anim.current.play()
     } else {
-      this.anim.pause()
+      anim.current.pause()
     }
   }
 
-  render() {
-    const {
-      width,
-      height,
-      ariaRole,
-      ariaLabel,
-      isClickToPauseDisabled,
-      title,
-    } = this.props
+  const {
+    width,
+    height,
+    ariaRole,
+    ariaLabel,
+    isClickToPauseDisabled,
+    title,
+  } = props
 
-    const getSize = (initial) => {
-      let size
+  const getSize = (initial) => {
+    let size
 
-      if (typeof initial === 'number') {
-        size = `${initial}px`
-      } else {
-        size = initial || '100%'
-      }
-
-      return size
+    if (typeof initial === 'number') {
+      size = `${initial}px`
+    } else {
+      size = initial || '100%'
     }
 
-    const lottieStyles = {
-      width: getSize(width),
-      height: getSize(height),
-      overflow: 'hidden',
-      margin: '0 auto',
-      outline: 'none',
-      ...this.props.style,
-    }
-
-    const onClickHandler = isClickToPauseDisabled
-      ? () => null
-      : this.handleClickToPause
-
-    return (
-      // Bug with eslint rules https://github.com/airbnb/javascript/issues/1374
-      // eslint-disable-next-line jsx-a11y/no-static-element-interactions
-      <div
-        ref={(c) => {
-          this.el = c
-        }}
-        style={lottieStyles}
-        onClick={onClickHandler}
-        title={title}
-        role={ariaRole}
-        aria-label={ariaLabel}
-        tabIndex='0'
-      />
-    )
+    return size
   }
+
+  const lottieStyles = {
+    width: getSize(width),
+    height: getSize(height),
+    overflow: 'hidden',
+    margin: '0 auto',
+    outline: 'none',
+    ...props.style,
+  }
+
+  const onClickHandler = isClickToPauseDisabled
+    ? () => null
+    : handleClickToPause
+
+  return (
+    <div
+      ref={el}
+      style={lottieStyles}
+      onClick={onClickHandler}
+      title={title}
+      role={ariaRole}
+      aria-label={ariaLabel}
+      tabIndex='0'
+    />
+  )
 }
+
+export default Lottie
 
 Lottie.propTypes = {
   eventListeners: PropTypes.arrayOf(PropTypes.object),

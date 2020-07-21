@@ -1,5 +1,5 @@
 import React from 'react'
-import { Row, Col, Form, Input } from 'antd'
+import { Row, Col, Form, Input, Button } from 'antd'
 
 import { H1, H4 } from '../../components/common/Typography'
 import styles from './style.module.css'
@@ -63,7 +63,9 @@ const ContactPage = () => {
                     />
                   </Form.Item>
                   <Form.Item {...tailLayout}>
-                    <button className={styles.contactButton}>Send</button>
+                    <Button className={styles.contactButton} size='large'>
+                      Send
+                    </Button>
                   </Form.Item>
                 </Form>
               </Col>
