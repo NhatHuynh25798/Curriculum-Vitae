@@ -77,6 +77,14 @@ const TechnologyPage = () => {
   ]
 
   const TechItem = (props) => {
+    const handleMouseMove = () => {
+      setColor(props.color)
+    }
+
+    const handleMouseLeave = () => {
+      setColor(initialColor)
+    }
+
     return (
       <Row
         justify='center'
@@ -92,6 +100,8 @@ const TechnologyPage = () => {
                 borderTopLeftRadius: '0',
               }
         }
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
       >
         <Col lg={{ span: 24 }} className={styles.techItem}>
           <img
@@ -125,11 +135,9 @@ const TechnologyPage = () => {
                     style={{ position: 'relative' }}
                     onMouseMove={() => {
                       setChanged(index)
-                      setColor(item?.color)
                     }}
                     onMouseLeave={() => {
                       setChanged(null)
-                      setColor(initialColor)
                     }}
                   >
                     <TechItem

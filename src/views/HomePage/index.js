@@ -57,7 +57,7 @@ const HomPage = () => {
             />
           </Col>
           <Col lg={{ span: 14 }} className={styles.homePageGreeting}>
-            <Row justify='center'>
+            <Row justify='center' style={{ minWidth: '100%' }}>
               <Col lg={{ span: 24 }}>
                 <H1 fontSize={'4.5rem'} color='var(--secondary)'>
                   I&nbsp;<span>&lt;3</span>&nbsp; people who code

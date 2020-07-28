@@ -63,7 +63,11 @@ const ContactPage = () => {
                     />
                   </Form.Item>
                   <Form.Item {...tailLayout}>
-                    <Button className={styles.contactButton} size='large'>
+                    <Button
+                      className={styles.contactButton}
+                      size='large'
+                      htmlType='submit'
+                    >
                       Send
                     </Button>
                   </Form.Item>

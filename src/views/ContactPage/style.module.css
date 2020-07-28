@@ -1,34 +1,36 @@
 .contactPageContainerWrapper {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .contactPageContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    min-height: 100%;
-    padding: 2rem 0;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    background-color: var(--secondary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  min-height: 100%;
+  padding: 2rem 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  background-color: var(--secondary);
 }
 
-.contactButton {
-    display: inline-block;
-    width: 100%;
-    padding: 0.5rem 1.875rem;
-    border-radius: 0.125rem;
-    border: none;
-    background-color: var(--primary);
-    font-size: 1rem;
-    line-height: 1.5;
-    font-weight: 700;
-    color: var(--secondary);
-    cursor: pointer;
+.contactButton,
+.contactButton:active,
+.contactButton:focus {
+  display: inline-block;
+  width: 100%;
+  padding: 0.5rem 1.875rem;
+  border-radius: 0.125rem;
+  border: none;
+  background-color: var(--primary);
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 700;
+  color: var(--secondary);
+  cursor: pointer;
 }
 
 .contactButton:hover {
-    color: var(--secondary);
-    background: rgba(28, 28, 28, 0.97);
+  color: var(--secondary);
+  background: rgba(28, 28, 28, 0.97);
 }

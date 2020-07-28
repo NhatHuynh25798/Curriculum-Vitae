@@ -59,6 +59,7 @@ const AboutMe = () => {
       to: 'https://www.facebook.com/huynh.trongnhat',
       icon: (
         <Lottie
+          className={styles.iconLottie}
           options={loadAnimations(facebookAnimation, null, false)}
           height='7.5rem'
           width='7.5rem'
