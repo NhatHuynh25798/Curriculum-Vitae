@@ -82,17 +82,30 @@ const ContactPage = () => {
 
   return (
     <div className='container' style={{ padding: '0', overflowY: 'hidden' }}>
+      <iframe
+        title='map'
+        src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1282.652237665774!2d106.76617080160186!3d10.862071927726195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175279cc8ed15a1%3A0x960e1705cb6af8a2!2zTGluaCBUcnVuZywgVGjhu6cgxJDhu6ljLCBUaMOgbmggcGjhu5EgSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1596015088127!5m2!1svi!2s'
+        width='100%'
+        height='100%'
+        style={{
+          zIndex: '1000',
+          border: 0,
+        }}
+        aria-hidden={false}
+        tabIndex={0}
+        frameBorder={0}
+      ></iframe>
       <Row
         justify='center'
-        style={{
-          width: '100%',
-          minHeight: '100%',
-          backgroundImage: `url(${'./asset/images/map.png'})`,
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no repeat',
-          backgroundAttachment: 'fixed',
-          backgroundPosition: 'center',
-        }}
+        // style={{
+        //   width: '100%',
+        //   minHeight: '100%',
+        //   backgroundImage: `url(${'./asset/images/map.png'})`,
+        //   backgroundSize: 'cover',
+        //   backgroundRepeat: 'no repeat',
+        //   backgroundAttachment: 'fixed',
+        //   backgroundPosition: 'center',
+        // }}
       >
         <Col lg={{ span: 24 }} className={styles.contactPageContainerWrapper}>
           <Contact />
