@@ -1,101 +1,108 @@
 .aboutMeWrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  padding-bottom: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding-bottom: 4rem;
 }
 
 .iconSocialWrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50%;
-  margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin: 0;
 }
 
 .iconSocialItem {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
 }
 
 .iconSocialItem a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 6rem;
 }
 
 .iconSocialContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    width: 6rem;
+    height: 6rem;
 }
 
 .iconSocial {
-  position: relative;
-  width: 100%;
-  color: inherit;
+    position: relative;
+    width: 100%;
+    color: inherit;
 }
 
 .iconSocial:hover {
-  color: inherit;
-  transform: scale(1.1);
-  transition: 0.3s;
-  cursor: pointer;
+    color: inherit;
+    transform: scale(1.1);
+    transition: 0.3s;
+    cursor: pointer;
 }
 
 .popoverHoverWrapper {
-  display: none;
-  width: 100%;
+    display: none;
+    width: 100%;
 }
 
 .popoverHover {
-  position: absolute;
-  top: 120%;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding: 0.3125rem;
-  font-size: 1.25rem;
-  text-align: center;
-  border-radius: 0.625rem;
-  color: var(--secondary);
-  background-color: rgb(83, 83, 83) !important;
+    position: absolute;
+    top: 120%;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0.3125rem;
+    font-size: 1.25rem;
+    text-align: center;
+    border-radius: 0.625rem;
+    color: var(--secondary);
+    background-color: rgb(83, 83, 83) !important;
 }
 
 .informationContainerWrapper {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  border-radius: 1.875rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    border-radius: 1.875rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .informationContainerWrapper:hover {
-  cursor: pointer;
-  transform: scale(1.1);
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    cursor: pointer;
+    transform: scale(1.1);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 .informationContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0.675rem 0;
-  font-size: 1.875rem;
-  text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.675rem 0;
+    font-size: 1.875rem;
+    text-align: center;
 }
 
 .informationContent {
-  display: block;
-  margin: auto;
+    display: block;
+    margin: auto;
+}
+
+@media only screen and (max-width: 576px) {
+    .iconSocialWrapper {
+        width: 100%;
+    }
 }

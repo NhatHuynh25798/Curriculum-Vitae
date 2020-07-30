@@ -2,6 +2,7 @@ import React from 'react'
 import { Row, Col, Button } from 'antd'
 import Typical from 'react-typical'
 
+import useMobile from '../../components/common/useMobile'
 import Lottie from '../../components/common/Lottie'
 import animation from '../../JsonFile/react-logo.json'
 import earthAnimation from '../../JsonFile/earth.json'
@@ -13,35 +14,40 @@ import styles from './style.module.css'
 
 const HomPage = () => {
   const url = 'https://google.com'
+  const isMobile = useMobile()
 
   return (
     <Row className={styles.starsContainerWrapper} justify='end'>
-      <div
-        style={{
-          position: 'fixed',
-          top: '35%',
-          left: '27%',
-        }}
-      >
-        <Lottie
-          options={loadAnimations(earthAnimation)}
-          height='8rem'
-          width='8rem'
-        />
-      </div>
-      <div
-        style={{
-          position: 'fixed',
-          top: '10%',
-          left: '5%',
-        }}
-      >
-        <Lottie
-          options={loadAnimations(animation, false)}
-          height='10rem'
-          width='10rem'
-        />
-      </div>
+      {!isMobile && (
+        <>
+          <div
+            style={{
+              position: 'fixed',
+              top: '35%',
+              left: '27%',
+            }}
+          >
+            <Lottie
+              options={loadAnimations(earthAnimation)}
+              height='8rem'
+              width='8rem'
+            />
+          </div>
+          <div
+            style={{
+              position: 'fixed',
+              top: '10%',
+              left: '5%',
+            }}
+          >
+            <Lottie
+              options={loadAnimations(animation, false)}
+              height='10rem'
+              width='10rem'
+            />
+          </div>
+        </>
+      )}
       <Col lg={{ offset: 1, span: 22 }}>
         <Row className={styles.startsContainer}>
           <div id={styles.stars}></div>
@@ -49,17 +55,26 @@ const HomPage = () => {
           <div id={styles.stars3}></div>
         </Row>
         <Row className={styles.homePageContainer}>
-          <Col lg={{ span: 10 }} className={styles.homePageImageWrapper}>
-            <img
-              className={styles.homePageImage}
-              src='./asset/images/moon.png'
-              alt='Moon'
-            />
-          </Col>
-          <Col lg={{ span: 14 }} className={styles.homePageGreeting}>
+          {!isMobile && (
+            <Col lg={{ span: 10 }} className={styles.homePageImageWrapper}>
+              <img
+                className={styles.homePageImage}
+                src='./asset/images/moon.png'
+                alt='Moon'
+              />
+            </Col>
+          )}
+          <Col
+            lg={{ span: 14 }}
+            xs={{ span: 24 }}
+            className={styles.homePageGreeting}
+          >
             <Row justify='center' style={{ minWidth: '100%' }}>
-              <Col lg={{ span: 24 }}>
-                <H1 fontSize={'4.5rem'} color='var(--secondary)'>
+              <Col lg={{ offset: 1, span: 22 }}>
+                <H1
+                  fontSize={isMobile ? '3rem' : '4.5rem'}
+                  color='var(--secondary)'
+                >
                   I&nbsp;<span>&lt;3</span>&nbsp; people who code
                 </H1>
               </Col>

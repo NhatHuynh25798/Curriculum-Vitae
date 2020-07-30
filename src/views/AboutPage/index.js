@@ -132,6 +132,7 @@ const AboutMe = () => {
                 {information.map((item, index) => (
                   <Col
                     lg={{ span: 7 }}
+                    xs={{ span: 24 }}
                     key={index}
                     style={{ display: 'flex', margin: '1rem 0' }}
                     className={styles.informationContainerWrapper}
@@ -166,6 +167,7 @@ const AboutMe = () => {
             </Col>
             <Col
               lg={{ span: 24 }}
+              xs={{ span: 24 }}
               style={{
                 display: 'flex',
                 justifyContent: 'center',
