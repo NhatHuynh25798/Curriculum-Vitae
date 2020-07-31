@@ -53,13 +53,15 @@
         text-align: right;
         position: relative;
     }
+    .drawer {
+        top: 5rem;
+        width: 50%;
+        transition: 0.5s;
+    }
     .headerNav {
-        position: absolute;
-        top: 64px;
-        left: 0;
-        flex-direction: column;
         width: 100%;
-        background-color: var(--primary);
-        transition: 0.25s linear, border 0.25s linear;
+        background: #000;
+        flex-direction: row;
+        color: var(--primary);
     }
 }

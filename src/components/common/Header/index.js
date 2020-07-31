@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Col, Row, Layout, Avatar } from 'antd'
+import { Col, Row, Layout, Avatar, Drawer, Menu } from 'antd'
 import { Link } from '@reach/router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
@@ -12,7 +12,72 @@ const { Header } = Layout
 
 const HeaderCV = () => {
   const isMobile = useMobile()
-  const [show, setShow] = useState(isMobile)
+  const [show, setShow] = useState(false)
+  const [index, setIndex] = useState(0)
+  const [current, setCurrent] = useState(0)
+
+  const menu = [
+    {
+      id: 0,
+      name: 'Home',
+      link: '/',
+    },
+    {
+      id: 1,
+      name: 'About',
+      link: '/about-me',
+    },
+    {
+      id: 2,
+      name: 'Resume',
+      link: '/resume',
+    },
+    {
+      id: 3,
+      name: 'Technology',
+      link: '/technology',
+    },
+    {
+      id: 4,
+      name: 'Project',
+      link: '/project',
+    },
+    {
+      id: 5,
+      name: 'Contact',
+      link: '/contact',
+    },
+  ]
+
+  const showDrawer = () => {
+    setShow(true)
+  }
+
+  const onClose = () => {
+    setShow(false)
+  }
+
+  const menuStyle = {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '100%',
+    height: '100%',
+    fontSize: '1.07rem',
+    background: 'var(--primary)',
+  }
+
+  const menuResStyle = {
+    height: '100%',
+    fontSize: '1.5rem',
+    color: 'var(--secondary)',
+    background: 'var(--primary)',
+  }
+
+  const drawerStyle = {
+    padding: '0',
+  }
+
   return (
     <Header className={styles.headerWrapper}>
       <Row style={{ width: '100%', height: '100%' }}>
@@ -45,43 +110,71 @@ const HeaderCV = () => {
               xs={{ span: 21 }}
               className={styles.headerNavContainer}
             >
-              {isMobile && show && (
+              {isMobile && !show && (
                 <FontAwesomeIcon
                   icon={faBars}
                   className={styles.hamburgerMenu}
-                  onClick={() => setShow(false)}
+                  onClick={() => showDrawer()}
                 />
               )}
 
-              {isMobile && !show && (
+              {isMobile && show && (
                 <FontAwesomeIcon
                   icon={faTimes}
                   className={styles.hamburgerMenu}
-                  onClick={() => setShow(true)}
+                  onClick={() => onClose()}
                 />
               )}
 
-              {(!isMobile || (isMobile && !show)) && (
-                <ul className={styles.headerNav}>
-                  <li>
-                    <Link to='/'>Home</Link>
-                  </li>
-                  <li>
-                    <Link to='/about-me'>About</Link>
-                  </li>
-                  <li>
-                    <Link to='/resume'>Resume</Link>
-                  </li>
-                  <li>
-                    <Link to='/technology'>Technology</Link>
-                  </li>
-                  <li>
-                    <Link to='/project'>Project</Link>
-                  </li>
-                  <li>
-                    <Link to='/contact'>Contact</Link>
-                  </li>
-                </ul>
+              {!isMobile && (
+                <Menu
+                  mode='horizontal'
+                  selectedKeys={[`${current}`]}
+                  theme='dark'
+                  onSelect={(key) => {
+                    setCurrent(+key?.key)
+                  }}
+                  style={menuStyle}
+                >
+                  {menu?.map((item) => (
+                    <Menu.Item
+                      key={`${item?.id}`}
+                      style={{ width: '16%', textAlign: 'center' }}
+                    >
+                      <Link to={item?.link}>{item?.name}</Link>
+                    </Menu.Item>
+                  ))}
+                </Menu>
+              )}
+
+              {isMobile && show && (
+                <Drawer
+                  placement='left'
+                  closable={false}
+                  onClose={onClose}
+                  visible={show}
+                  className={styles.drawer}
+                  bodyStyle={drawerStyle}
+                >
+                  <Menu
+                    selectedKeys={[`${index}`]}
+                    mode='inline'
+                    theme='dark'
+                    onClick={() => {
+                      onClose()
+                    }}
+                    onSelect={(key) => {
+                      setIndex(+key?.key)
+                    }}
+                    style={menuResStyle}
+                  >
+                    {menu?.map((item) => (
+                      <Menu.Item key={`${item?.id}`}>
+                        <Link to={item?.link}>{item?.name}</Link>
+                      </Menu.Item>
+                    ))}
+                  </Menu>
+                </Drawer>
               )}
             </Col>
           </Row>
