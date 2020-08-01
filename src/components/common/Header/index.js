@@ -91,15 +91,18 @@ const HeaderCV = () => {
             <Col lg={{ span: 4 }} xs={{ span: 3 }}>
               {!isMobile ? (
                 <Link to='/' className={styles.headerTitle}>
-                  <H3 className={styles.logoTitle} color='var(--secondary)'>
-                    Nhat Huynh
-                  </H3>
+                  <H3 color='var(--secondary)'>Nhat Huynh</H3>
                 </Link>
               ) : (
                 <Link to='/'>
                   <Avatar
                     src='asset/images/small-avatar.jpg'
-                    style={{ border: '2px solid var(--secondary)' }}
+                    style={{
+                      width: '3rem',
+                      height: '3rem',
+                      marginBottom: '1rem',
+                      border: '2px solid var(--secondary)',
+                    }}
                   />
                 </Link>
               )}

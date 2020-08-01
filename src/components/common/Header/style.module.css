@@ -15,11 +15,13 @@
 }
 
 .headerTitle h3 {
+    margin: 0;
     color: var(--secondary);
 }
 
 .hamburgerMenu {
-    font-size: 2rem;
+    margin-top: 1rem;
+    font-size: 2.5rem;
     color: var(--secondary);
 }
 
