@@ -115,41 +115,47 @@ const TechnologyPage = () => {
   }
 
   return (
-    <div className='container'>
+    <div className='container' style={{ paddingLeft: 0, paddingRight: 0 }}>
       <Row justify='center'>
         <Col lg={{ offset: 2, span: 20 }} style={{ margin: '0' }}>
           <Row className='title'>
             <H1>Technology</H1>
           </Row>
-          <Row justify='center' style={{ padding: '1rem' }}>
-            <Timeline mode='alternate' className={styles.timelineContainer}>
-              {imagesTech?.map((item, index) => (
-                <Timeline.Item
-                  key={index}
-                  label={item?.title}
-                  dot={item?.icon}
-                  color={item?.color}
-                  className={styles.timelineItem}
-                >
-                  <div
-                    style={{ position: 'relative' }}
-                    onMouseMove={() => {
-                      setChanged(index)
-                    }}
-                    onMouseLeave={() => {
-                      setChanged(null)
-                    }}
+          <Row justify='center' style={{ marginTop: '2rem' }}>
+            <Col
+              lg={{ span: 24 }}
+              xs={{ offset: 1, span: 22 }}
+              style={{ margin: 0 }}
+            >
+              <Timeline mode='alternate' className={styles.timelineContainer}>
+                {imagesTech?.map((item, index) => (
+                  <Timeline.Item
+                    key={index}
+                    label={item?.title}
+                    dot={item?.icon}
+                    color={item?.color}
+                    className={styles.timelineItem}
                   >
-                    <TechItem
-                      color={item?.color}
-                      data={item?.image}
-                      title={item?.title}
-                      margin={index % 2 === 0 ? false : true}
-                    />
-                  </div>
-                </Timeline.Item>
-              ))}
-            </Timeline>
+                    <div
+                      style={{ position: 'relative' }}
+                      onMouseMove={() => {
+                        setChanged(index)
+                      }}
+                      onMouseLeave={() => {
+                        setChanged(null)
+                      }}
+                    >
+                      <TechItem
+                        color={item?.color}
+                        data={item?.image}
+                        title={item?.title}
+                        margin={index % 2 === 0 ? false : true}
+                      />
+                    </div>
+                  </Timeline.Item>
+                ))}
+              </Timeline>
+            </Col>
           </Row>
         </Col>
       </Row>

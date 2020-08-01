@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { Row, Col } from 'antd'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
+import useMobile from '../../components/common/useMobile'
 import Lottie from '../../components/common/Lottie'
 import facebookAnimation from '../../JsonFile/facebook-logo.json'
 import instagramAnimation from '../../JsonFile/instagram-logo.json'
@@ -15,6 +18,7 @@ import { H1, H2, T1, T3 } from '../../components/common/Typography'
 import styles from './style.module.css'
 
 const AboutMe = () => {
+  const isMobile = useMobile()
   const [visible, setVisible] = useState(null)
 
   const information = [
@@ -82,12 +86,17 @@ const AboutMe = () => {
     {
       name: 'GitHub',
       to: 'https://github.com/NhatHuynh25798',
-      icon: (
+      icon: !isMobile ? (
         <Lottie
           options={loadAnimations(gitHubAnimation, null, false)}
-          height='5rem'
-          width='5rem'
+          height='5.3rem'
+          width='5.3rem'
           isStopped={visible === 2 ? false : true}
+        />
+      ) : (
+        <FontAwesomeIcon
+          icon={faGithub}
+          style={{ height: '4.6rem', width: '4.6rem', color: 'var(--primary)' }}
         />
       ),
     },

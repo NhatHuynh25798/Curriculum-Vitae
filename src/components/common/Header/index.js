@@ -149,7 +149,7 @@ const HeaderCV = () => {
 
               {isMobile && show && (
                 <Drawer
-                  placement='left'
+                  placement='right'
                   closable={false}
                   onClose={onClose}
                   visible={show}
