@@ -96,7 +96,7 @@ const AboutMe = () => {
   const PopoverHover = ({ name, id }) => (
     <div
       className={styles.popoverHoverWrapper}
-      style={{ display: id === visible ? 'block' : 'none' }}
+      style={{ display: id === visible ? 'inline' : 'none' }}
     >
       <div className={styles.popoverHover}>{name}</div>
     </div>
