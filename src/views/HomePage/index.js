@@ -13,7 +13,7 @@ import { H1 } from '../../components/common/Typography'
 import styles from './style.module.css'
 
 const HomPage = () => {
-  const url = 'https://google.com'
+  const url = 'https://i.topcv.vn/huynhtrongnhat?ref=3223638'
   const isMobile = useMobile()
 
   return (
