@@ -48,7 +48,7 @@ const HomPage = () => {
           </div>
         </>
       )}
-      <Col lg={{ offset: 1, span: 22 }}>
+      <Col sm={{ offset: 1, span: 22 }}>
         <Row className={styles.startsContainer}>
           <div id={styles.stars}></div>
           <div id={styles.stars2}></div>
@@ -56,7 +56,7 @@ const HomPage = () => {
         </Row>
         <Row className={styles.homePageContainer}>
           {!isMobile && (
-            <Col lg={{ span: 10 }} className={styles.homePageImageWrapper}>
+            <Col sm={{ span: 10 }} className={styles.homePageImageWrapper}>
               <img
                 className={styles.homePageImage}
                 src='./asset/images/moon.png'
@@ -65,12 +65,12 @@ const HomPage = () => {
             </Col>
           )}
           <Col
-            lg={{ span: 14 }}
+            sm={{ span: 14 }}
             xs={{ span: 24 }}
             className={styles.homePageGreeting}
           >
             <Row justify='center' style={{ minWidth: '100%' }}>
-              <Col lg={{ offset: 1, span: 22 }}>
+              <Col sm={{ offset: 1, span: 22 }}>
                 <H1
                   fontSize={isMobile ? '3rem' : '4.5rem'}
                   color='var(--secondary)'
@@ -79,7 +79,7 @@ const HomPage = () => {
                 </H1>
               </Col>
 
-              <Col lg={{ span: 24 }} className={styles.hello}>
+              <Col sm={{ span: 24 }} className={styles.hello}>
                 <Typical
                   steps={[
                     'Hello,',
@@ -97,7 +97,7 @@ const HomPage = () => {
                 />
               </Col>
 
-              <Col lg={{ span: 24 }} className={styles.downloadButtonWrapper}>
+              <Col sm={{ span: 24 }} className={styles.downloadButtonWrapper}>
                 <Button
                   size='large'
                   type='primary'

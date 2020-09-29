@@ -1,0 +1,8 @@
+.linkProject {
+  color: var(--background);
+}
+
+.linkProject:hover {
+  text-decoration: underline solid var(--background);
+  cursor: pointer;
+}

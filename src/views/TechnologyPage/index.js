@@ -103,7 +103,7 @@ const TechnologyPage = () => {
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
       >
-        <Col lg={{ span: 24 }} className={styles.techItem}>
+        <Col sm={{ span: 24 }} className={styles.techItem}>
           <img
             src={props?.data}
             alt={props?.title}
@@ -117,13 +117,13 @@ const TechnologyPage = () => {
   return (
     <div className='container' style={{ paddingLeft: 0, paddingRight: 0 }}>
       <Row justify='center'>
-        <Col lg={{ offset: 2, span: 20 }} style={{ margin: '0' }}>
+        <Col sm={{ offset: 2, span: 20 }} style={{ margin: '0' }}>
           <Row className='title'>
             <H1>Technology</H1>
           </Row>
           <Row justify='center' style={{ marginTop: '2rem' }}>
             <Col
-              lg={{ span: 24 }}
+              sm={{ span: 24 }}
               xs={{ offset: 1, span: 22 }}
               style={{ margin: 0 }}
             >

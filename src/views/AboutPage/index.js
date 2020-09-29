@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Row, Col } from 'antd'
+import { Row, Col, Avatar } from 'antd'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
@@ -114,19 +114,25 @@ const AboutMe = () => {
   return (
     <div className='container'>
       <Row justify='space-between' className={styles.aboutMeWrapper}>
-        <Col lg={{ offset: 2, span: 20 }} style={{ margin: '0' }}>
+        <Col sm={{ offset: 2, span: 20 }} style={{ margin: '0' }}>
           <Row className='title'>
             <H1>About Me</H1>
           </Row>
           <Row justify='center' gutter={[0, 16]}>
-            <Col lg={{ span: 24 }}>
+            <Col
+              sm={{ span: 24 }}
+              style={{ display: 'flex', justifyContent: 'center' }}
+            >
+              <Avatar src='/asset/images/avatar.png' size={240} />
+            </Col>
+            <Col sm={{ span: 24 }}>
               <T1>
                 Hi! My name is Huynh Trong Nhat. I’m extremely passionate about
                 web development especially Frontend Development, helping
                 businesses and improve their online presence.{' '}
               </T1>
             </Col>
-            <Col lg={{ span: 24 }}>
+            <Col sm={{ span: 24 }}>
               <T1>
                 Currently, I studying with a Software Engineer in Nong Lam
                 University. Besides, I self-educated Front-end Development and
@@ -136,11 +142,11 @@ const AboutMe = () => {
                 professional setting.
               </T1>
             </Col>
-            <Col lg={{ span: 24 }}>
+            <Col sm={{ span: 24 }}>
               <Row gutter={[16, 16]} justify='space-between'>
                 {information.map((item, index) => (
                   <Col
-                    lg={{ span: 7 }}
+                    sm={{ span: 7 }}
                     xs={{ span: 24 }}
                     key={index}
                     style={{ display: 'flex', margin: '1rem 0' }}
@@ -167,7 +173,7 @@ const AboutMe = () => {
               </Row>
             </Col>
             <Col
-              lg={{ span: 24 }}
+              sm={{ span: 24 }}
               style={{
                 textAlign: 'center',
               }}
@@ -175,7 +181,7 @@ const AboutMe = () => {
               <H2>My Social Network</H2>
             </Col>
             <Col
-              lg={{ span: 24 }}
+              sm={{ span: 24 }}
               xs={{ span: 24 }}
               style={{
                 display: 'flex',

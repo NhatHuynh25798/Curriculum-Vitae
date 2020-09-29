@@ -45,15 +45,15 @@ const ResumePage = () => {
   return (
     <div className='container'>
       <Row justify='center'>
-        <Col lg={{ offset: 2, span: 20 }} style={{ margin: '0' }}>
+        <Col sm={{ offset: 2, span: 20 }} style={{ margin: '0' }}>
           <Row className='title'>
             <H1>Resume</H1>
           </Row>
           <Row justify='center' gutter={[0, 16]}>
-            <Col lg={{ span: 11 }} className={styles.colResume}>
+            <Col sm={{ span: 11 }} className={styles.colResume}>
               <ResumeContent data={experienceInformation} />
             </Col>
-            <Col lg={{ span: 11 }} className={styles.colResume}>
+            <Col sm={{ span: 11 }} className={styles.colResume}>
               <ResumeContent data={educationInformation} />
             </Col>
           </Row>

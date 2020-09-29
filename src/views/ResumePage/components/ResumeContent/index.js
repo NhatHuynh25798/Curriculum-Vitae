@@ -9,14 +9,14 @@ const ResumeContent = (props) => {
 
   return (
     <Row justify='center' className={styles.resumeContentContainerWrapper}>
-      <Col lg={{ offset: 2, span: 20 }}>
+      <Col sm={{ offset: 2, span: 20 }}>
         <Row style={{ display: 'flex', justifyContent: 'flex-start' }}>
           <H3>{data?.title}</H3>
         </Row>
         <Row gutter={[0, 48]}>
-          <Col lg={{ span: 24 }}>
+          <Col sm={{ span: 24 }}>
             <Row className={styles.resumeContentContainer}>
-              <Col lg={{ span: 24 }} className={styles.resumeContentItem}>
+              <Col sm={{ span: 24 }} className={styles.resumeContentItem}>
                 {data?.content?.map((item, index) => (
                   <Row
                     key={index}
@@ -29,7 +29,7 @@ const ResumeContent = (props) => {
                       padding: '1.875rem',
                     }}
                   >
-                    <Col lg={{ span: 24 }}>
+                    <Col sm={{ span: 24 }}>
                       <Row
                         style={{
                           display: 'flex',

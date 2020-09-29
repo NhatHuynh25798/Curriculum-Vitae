@@ -1,69 +1,69 @@
 .headerWrapper {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 99;
-    width: 100%;
-    background-color: var(--primary);
-    border-bottom: 0.125rem solid rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  width: 100%;
+  background-color: var(--primary);
+  border-bottom: 0.125rem solid rgba(0, 0, 0, 0.1);
 }
 
 .headerTitle {
-    font-size: 1.8rem;
-    font-weight: 800;
-    letter-spacing: 0.14px;
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: 0.14px;
 }
 
 .headerTitle h3 {
-    margin: 0;
-    color: var(--secondary);
+  margin: 0;
+  color: var(--secondary);
 }
 
 .hamburgerMenu {
-    margin-top: 1rem;
-    font-size: 2.5rem;
-    color: var(--secondary);
+  margin-top: 1rem;
+  font-size: 2.5rem;
+  color: var(--secondary);
 }
 
 .headerNav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.headerNav>li {
-    padding: 0 4px;
+.headerNav > li {
+  padding: 0 4px;
 }
 
-.headerNav>li>a {
-    color: var(--secondary);
-    font-size: 1.07rem;
+.headerNav > li > a {
+  color: var(--secondary);
+  font-size: 1.07rem;
 }
 
-.headerNav>li:hover>a:hover {
-    text-decoration: underline;
+.headerNav > li:hover > a:hover {
+  text-decoration: underline;
 }
 
 @media only screen and (max-width: 576px) {
-    .headerWrapper {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 2rem;
-    }
-    .headerNavContainer {
-        text-align: right;
-        position: relative;
-    }
-    .drawer {
-        top: 5rem;
-        width: 50%;
-        transition: 0.5s;
-    }
-    .headerNav {
-        width: 100%;
-        background: #000;
-        flex-direction: row;
-        color: var(--primary);
-    }
+  .headerWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+  }
+  .headerNavContainer {
+    text-align: right;
+    position: relative;
+  }
+  .drawer {
+    top: 5rem;
+    width: 50%;
+    transition: 0.5s;
+  }
+  .headerNav {
+    width: 100%;
+    background: #000;
+    flex-direction: row;
+    color: var(--primary);
+  }
 }

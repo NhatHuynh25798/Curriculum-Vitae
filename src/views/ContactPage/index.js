@@ -19,7 +19,7 @@ const ContactPage = () => {
   const Contact = () => (
     <Row justify='center' className={styles.contactPageContainer}>
       <Col
-        lg={{ offset: 1, span: 22 }}
+        sm={{ offset: 1, span: 22 }}
         xs={{ offset: 1, span: 22 }}
         style={{ margin: '0' }}
       >
@@ -28,7 +28,7 @@ const ContactPage = () => {
         </Row>
         <Row justify='space-between' gutter={[32, 0]}>
           {!isMobile && (
-            <Col lg={{ span: 10 }}>
+            <Col sm={{ span: 10 }}>
               <img
                 className={styles.contactImage}
                 src='./asset/images/contact.png'
@@ -36,12 +36,12 @@ const ContactPage = () => {
               />
             </Col>
           )}
-          <Col lg={{ span: 13 }} xs={{ span: 24 }}>
+          <Col sm={{ span: 13 }} xs={{ span: 24 }}>
             <Row gutter={[0, 16]} justify='center'>
-              <Col lg={{ span: 24 }} xs={{ span: 24 }}>
+              <Col sm={{ span: 24 }} xs={{ span: 24 }}>
                 <H4>Leave your contact information:</H4>
               </Col>
-              <Col lg={{ span: 24 }} xs={{ span: 24 }}>
+              <Col sm={{ span: 24 }} xs={{ span: 24 }}>
                 <Form {...layout} name='basic'>
                   <Form.Item
                     name='name'
@@ -122,7 +122,7 @@ const ContactPage = () => {
       )}
       <Row justify='center'>
         <Col
-          lg={{ span: 24 }}
+          sm={{ span: 24 }}
           xs={{ span: 24 }}
           className={styles.contactPageContainerWrapper}
         >

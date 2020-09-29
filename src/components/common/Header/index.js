@@ -1,49 +1,46 @@
 import React, { useState } from 'react'
 import { Col, Row, Layout, Avatar, Drawer, Menu } from 'antd'
-import { Link } from '@reach/router'
+import { Link, globalHistory } from '@reach/router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 
 import useMobile from '../useMobile'
 import { H3 } from '../Typography'
 import styles from './style.module.css'
+import 'antd/dist/antd.css'
 
 const { Header } = Layout
 
 const HeaderCV = () => {
   const isMobile = useMobile()
+  const params = globalHistory.location.pathname
+
   const [show, setShow] = useState(false)
-  const [index, setIndex] = useState(0)
-  const [current, setCurrent] = useState(0)
+  const [index, setIndex] = useState(params)
+  const [current, setCurrent] = useState(params)
 
   const menu = [
     {
-      id: 0,
       name: 'Home',
       link: '/',
     },
     {
-      id: 1,
       name: 'About',
       link: '/about-me',
     },
     {
-      id: 2,
       name: 'Resume',
       link: '/resume',
     },
     {
-      id: 3,
       name: 'Technology',
       link: '/technology',
     },
     {
-      id: 4,
       name: 'Project',
       link: '/project',
     },
     {
-      id: 5,
       name: 'Contact',
       link: '/contact',
     },
@@ -81,14 +78,14 @@ const HeaderCV = () => {
   return (
     <Header className={styles.headerWrapper}>
       <Row style={{ width: '100%', height: '100%' }}>
-        <Col lg={{ span: 24 }} xs={{ span: 24 }}>
+        <Col sm={{ span: 24 }} xs={{ span: 24 }}>
           <Row
             type='flex'
             align='middle'
             justify='space-between'
             style={{ height: '100%' }}
           >
-            <Col lg={{ span: 4 }} xs={{ span: 3 }}>
+            <Col sm={{ span: 4 }} xs={{ span: 3 }}>
               {!isMobile ? (
                 <Link to='/' className={styles.headerTitle}>
                   <H3 color='var(--secondary)'>Nhat Huynh</H3>
@@ -109,7 +106,7 @@ const HeaderCV = () => {
             </Col>
 
             <Col
-              lg={{ span: 16 }}
+              sm={{ span: 16 }}
               xs={{ span: 21 }}
               className={styles.headerNavContainer}
             >
@@ -135,13 +132,14 @@ const HeaderCV = () => {
                   selectedKeys={[`${current}`]}
                   theme='dark'
                   onSelect={(key) => {
-                    setCurrent(+key?.key)
+                    setCurrent(key?.key)
                   }}
+                  className={styles.menuStyle}
                   style={menuStyle}
                 >
                   {menu?.map((item) => (
                     <Menu.Item
-                      key={`${item?.id}`}
+                      key={`${item?.link}`}
                       style={{ width: '16%', textAlign: 'center' }}
                     >
                       <Link to={item?.link}>{item?.name}</Link>
@@ -167,12 +165,12 @@ const HeaderCV = () => {
                       onClose()
                     }}
                     onSelect={(key) => {
-                      setIndex(+key?.key)
+                      setIndex(key?.key)
                     }}
                     style={menuResStyle}
                   >
                     {menu?.map((item) => (
-                      <Menu.Item key={`${item?.id}`}>
+                      <Menu.Item key={`${item?.link}`}>
                         <Link to={item?.link}>{item?.name}</Link>
                       </Menu.Item>
                     ))}
