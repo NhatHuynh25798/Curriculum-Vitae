@@ -64,27 +64,31 @@ const ProjectPage = () => {
               </Col>
             </Row>
           </Col>
-          <Col sm={{ span: 11 }}>
-            <div style={{ width: '100%' }}>
-              <div
-                className='fb-page'
-                data-href='https://www.facebook.com/Crave-Food-101326401742632'
-                data-tabs='D&#xf2;ng th&#x1edd;i gian, th&#xed;ch'
-                data-width=''
-                data-height=''
-                data-small-header='false'
-                data-adapt-container-width='false'
-                data-hide-cover='false'
-                data-show-facepile='true'
-              >
-                <blockquote
-                  cite='https://www.facebook.com/Crave-Food-101326401742632'
-                  className='fb-xfbml-parse-ignore'
-                >
-                  <a href='https://www.facebook.com/Crave-Food-101326401742632'>
-                    CraveFood
-                  </a>
-                </blockquote>
+          <Col
+            sm={{ span: 11 }}
+            style={{ padding: '0' }}
+            className={styles.backgroundImage}
+          >
+            <img src='asset/images/background.jpg' alt='cravefood' />
+            <span className={styles.titleProject}>CRAVEFOOD</span>
+            <div className={styles.logoContainer}>
+              <img
+                src='asset/images/logo.png'
+                alt='logo-cravefood'
+                className={styles.logo}
+                onClick={() => window.open('https://cravefood.netlify.app')}
+              />
+              <div style={{ marginLeft: '1rem', color: 'var(--secondary)' }}>
+                <div>
+                  <span
+                    className={styles.linkProject}
+                    style={{ color: 'var(--secondary)' }}
+                    onClick={() => window.open('https://cravefood.netlify.app')}
+                  >
+                    <strong>Crave Food</strong>
+                  </span>
+                </div>
+                <div>Phát huy truyền thống - Kết nối hiện đại</div>
               </div>
             </div>
           </Col>
