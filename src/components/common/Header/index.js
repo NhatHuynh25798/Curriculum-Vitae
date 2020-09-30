@@ -22,7 +22,7 @@ const HeaderCV = () => {
   const menu = [
     {
       name: 'Home',
-      link: '/',
+      link: '/home-page',
     },
     {
       name: 'About',
