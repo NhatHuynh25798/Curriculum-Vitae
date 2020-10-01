@@ -67,6 +67,7 @@
   font-size: 2rem;
   transform: translate(-50%, -50%);
   color: var(--secondary);
+  text-transform: uppercase;
 }
 
 @keyframes leftToRight {
@@ -76,5 +77,15 @@
   100% {
     left: 5%;
     opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .backgroundImage {
+    height: 150px;
+  }
+  .titleProject {
+    text-align: center;
+    font-size: 1.5rem;
   }
 }
