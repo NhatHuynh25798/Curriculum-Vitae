@@ -130,6 +130,7 @@ const HeaderCV = () => {
                 <Menu
                   mode='horizontal'
                   selectedKeys={[`${current}`]}
+                  defaultSelectedKeys={[`${current}`]}
                   theme='dark'
                   onSelect={(key) => {
                     setCurrent(key?.key)
@@ -159,6 +160,7 @@ const HeaderCV = () => {
                 >
                   <Menu
                     selectedKeys={[`${index}`]}
+                    defaultSelectedKeys={[`${index}`]}
                     mode='inline'
                     theme='dark'
                     onClick={() => {
