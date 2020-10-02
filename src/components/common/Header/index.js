@@ -13,7 +13,10 @@ const { Header } = Layout
 
 const HeaderCV = () => {
   const isMobile = useMobile()
-  const params = globalHistory.location.pathname
+  const params =
+    globalHistory.location.pathname === '/'
+      ? '/home-page'
+      : globalHistory.location.pathname
 
   const [show, setShow] = useState(false)
   const [index, setIndex] = useState(params)
