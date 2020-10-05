@@ -44,7 +44,7 @@
   text-decoration: underline;
 }
 
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 992px) {
   .headerWrapper {
     display: flex;
     justify-content: space-between;
@@ -57,7 +57,7 @@
   }
   .drawer {
     top: 5rem;
-    width: 50%;
+    width: 100%;
     transition: 0.5s;
   }
   .headerNav {

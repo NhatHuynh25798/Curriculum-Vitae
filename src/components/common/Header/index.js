@@ -17,10 +17,7 @@ const HeaderCV = () => {
     globalHistory.location.pathname === '/'
       ? '/home-page'
       : globalHistory.location.pathname
-
   const [show, setShow] = useState(false)
-  const [index, setIndex] = useState(params)
-  const [current, setCurrent] = useState(params)
 
   const menu = [
     {
@@ -132,12 +129,8 @@ const HeaderCV = () => {
               {!isMobile && (
                 <Menu
                   mode='horizontal'
-                  selectedKeys={[`${current}`]}
-                  defaultSelectedKeys={[`${current}`]}
+                  defaultSelectedKeys={[`${params}`]}
                   theme='dark'
-                  onSelect={(key) => {
-                    setCurrent(key?.key)
-                  }}
                   className={styles.menuStyle}
                   style={menuStyle}
                 >
@@ -162,15 +155,11 @@ const HeaderCV = () => {
                   bodyStyle={drawerStyle}
                 >
                   <Menu
-                    selectedKeys={[`${index}`]}
-                    defaultSelectedKeys={[`${index}`]}
+                    defaultSelectedKeys={[`${params}`]}
                     mode='inline'
                     theme='dark'
                     onClick={() => {
                       onClose()
-                    }}
-                    onSelect={(key) => {
-                      setIndex(key?.key)
                     }}
                     style={menuResStyle}
                   >
