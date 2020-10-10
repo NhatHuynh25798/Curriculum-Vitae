@@ -4,7 +4,6 @@ import { Link, globalHistory } from '@reach/router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 
-import useMobile from '../useMobile'
 import { H3 } from '../Typography'
 import styles from './style.module.css'
 import 'antd/dist/antd.css'
@@ -12,7 +11,6 @@ import 'antd/dist/antd.css'
 const { Header } = Layout
 
 const HeaderCV = () => {
-  const isMobile = useMobile()
   const params =
     globalHistory.location.pathname === '/'
       ? '/home-page'
@@ -86,23 +84,26 @@ const HeaderCV = () => {
             style={{ height: '100%' }}
           >
             <Col sm={{ span: 4 }} xs={{ span: 3 }}>
-              {!isMobile ? (
-                <Link to='/' className={styles.headerTitle}>
-                  <H3 color='var(--secondary)'>Nhat Huynh</H3>
-                </Link>
-              ) : (
-                <Link to='/'>
-                  <Avatar
-                    src='asset/images/small-avatar.jpg'
-                    style={{
-                      width: '3rem',
-                      height: '3rem',
-                      marginBottom: '1rem',
-                      border: '2px solid var(--secondary)',
-                    }}
-                  />
-                </Link>
-              )}
+              <Row>
+                <Col xs={0} md={24}>
+                  <Link to='/' className={styles.headerTitle}>
+                    <H3 color='var(--secondary)'>Nhat Huynh</H3>
+                  </Link>
+                </Col>
+                <Col xs={24} md={0}>
+                  <Link to='/'>
+                    <Avatar
+                      src='asset/images/small-avatar.jpg'
+                      style={{
+                        width: '3rem',
+                        height: '3rem',
+                        marginBottom: '1rem',
+                        border: '2px solid var(--secondary)',
+                      }}
+                    />
+                  </Link>
+                </Col>
+              </Row>
             </Col>
 
             <Col
@@ -110,67 +111,75 @@ const HeaderCV = () => {
               xs={{ span: 21 }}
               className={styles.headerNavContainer}
             >
-              {isMobile && !show && (
-                <FontAwesomeIcon
-                  icon={faBars}
-                  className={styles.hamburgerMenu}
-                  onClick={() => showDrawer()}
-                />
-              )}
+              <Row>
+                {!show && (
+                  <Col xs={24} md={0}>
+                    <FontAwesomeIcon
+                      icon={faBars}
+                      className={styles.hamburgerMenu}
+                      onClick={() => showDrawer()}
+                    />
+                  </Col>
+                )}
 
-              {isMobile && show && (
-                <FontAwesomeIcon
-                  icon={faTimes}
-                  className={styles.hamburgerMenu}
-                  onClick={() => onClose()}
-                />
-              )}
+                {show && (
+                  <Col xs={24} md={0}>
+                    <FontAwesomeIcon
+                      icon={faTimes}
+                      className={styles.hamburgerMenu}
+                      onClick={() => onClose()}
+                    />
+                  </Col>
+                )}
 
-              {!isMobile && (
-                <Menu
-                  mode='horizontal'
-                  defaultSelectedKeys={[`${params}`]}
-                  theme='dark'
-                  className={styles.menuStyle}
-                  style={menuStyle}
-                >
-                  {menu?.map((item) => (
-                    <Menu.Item
-                      key={`${item?.link}`}
-                      style={{ width: '16%', textAlign: 'center' }}
-                    >
-                      <Link to={item?.link}>{item?.name}</Link>
-                    </Menu.Item>
-                  ))}
-                </Menu>
-              )}
-
-              {isMobile && show && (
-                <Drawer
-                  placement='right'
-                  closable={false}
-                  onClose={onClose}
-                  visible={show}
-                  className={styles.drawer}
-                  bodyStyle={drawerStyle}
-                >
+                <Col xs={0} md={24}>
                   <Menu
+                    mode='horizontal'
                     defaultSelectedKeys={[`${params}`]}
-                    mode='inline'
                     theme='dark'
-                    onClick={() => {
-                      onClose()
-                    }}
-                    style={menuResStyle}
+                    className={styles.menuStyle}
+                    style={menuStyle}
                   >
                     {menu?.map((item) => (
-                      <Menu.Item key={`${item?.link}`}>
+                      <Menu.Item
+                        key={`${item?.link}`}
+                        style={{ width: '16%', textAlign: 'center' }}
+                      >
                         <Link to={item?.link}>{item?.name}</Link>
                       </Menu.Item>
                     ))}
                   </Menu>
-                </Drawer>
-              )}
+                </Col>
+
+                {show && (
+                  <Col xs={24} md={0}>
+                    <Drawer
+                      placement='right'
+                      closable={false}
+                      onClose={onClose}
+                      visible={show}
+                      className={styles.drawer}
+                      bodyStyle={drawerStyle}
+                    >
+                      <Menu
+                        defaultSelectedKeys={[`${params}`]}
+                        mode='inline'
+                        theme='dark'
+                        onClick={() => {
+                          onClose()
+                        }}
+                        style={menuResStyle}
+                      >
+                        {menu?.map((item) => (
+                          <Menu.Item key={`${item?.link}`}>
+                            <Link to={item?.link}>{item?.name}</Link>
+                          </Menu.Item>
+                        ))}
+                      </Menu>
+                    </Drawer>
+                  </Col>
+                )}
+              </Row>
             </Col>
           </Row>
         </Col>

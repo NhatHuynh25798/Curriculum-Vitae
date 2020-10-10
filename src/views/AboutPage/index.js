@@ -96,7 +96,7 @@ const AboutMe = () => {
       ) : (
         <FontAwesomeIcon
           icon={faGithub}
-          style={{ height: '4.6rem', width: '4.6rem', color: 'var(--primary)' }}
+          style={{ height: '4rem', width: '4rem', color: 'var(--primary)' }}
         />
       ),
     },
@@ -143,7 +143,11 @@ const AboutMe = () => {
               </T1>
             </Col>
             <Col sm={{ span: 24 }}>
-              <Row gutter={[16, 16]} justify='space-between'>
+              <Row
+                gutter={[16, 16]}
+                justify='space-between'
+                className={styles.informationWrapper}
+              >
                 {information.map((item, index) => (
                   <Col
                     sm={{ span: 7 }}

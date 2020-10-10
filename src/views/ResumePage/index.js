@@ -50,10 +50,10 @@ const ResumePage = () => {
             <H1>Resume</H1>
           </Row>
           <Row justify='center' gutter={[0, 16]}>
-            <Col sm={{ span: 11 }} className={styles.colResume}>
+            <Col xs={24} sm={24} lg={11} className={styles.colResume}>
               <ResumeContent data={experienceInformation} />
             </Col>
-            <Col sm={{ span: 11 }} className={styles.colResume}>
+            <Col xs={24} sm={24} lg={11} className={styles.colResume}>
               <ResumeContent data={educationInformation} />
             </Col>
           </Row>

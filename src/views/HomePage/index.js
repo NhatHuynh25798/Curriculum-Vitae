@@ -18,36 +18,40 @@ const HomPage = () => {
 
   return (
     <Row className={styles.starsContainerWrapper} justify='end'>
-      {!isMobile && (
-        <>
-          <div
-            style={{
-              position: 'fixed',
-              top: '35%',
-              left: '27%',
-            }}
-          >
-            <Lottie
-              options={loadAnimations(earthAnimation)}
-              height='8rem'
-              width='8rem'
-            />
-          </div>
-          <div
-            style={{
-              position: 'fixed',
-              top: '10%',
-              left: '5%',
-            }}
-          >
-            <Lottie
-              options={loadAnimations(animation, false)}
-              height='10rem'
-              width='10rem'
-            />
-          </div>
-        </>
-      )}
+      <Col xs={24}>
+        <Row>
+          <Col xs={0} sm={0} lg={24}>
+            <div
+              style={{
+                position: 'fixed',
+                top: '35%',
+                left: '27%',
+              }}
+            >
+              <Lottie
+                options={loadAnimations(earthAnimation)}
+                height='8rem'
+                width='8rem'
+              />
+            </div>
+          </Col>
+          <Col xs={0} sm={0} lg={24}>
+            <div
+              style={{
+                position: 'fixed',
+                top: '10%',
+                left: '5%',
+              }}
+            >
+              <Lottie
+                options={loadAnimations(animation, false)}
+                height='10rem'
+                width='10rem'
+              />
+            </div>
+          </Col>
+        </Row>
+      </Col>
       <Col sm={{ offset: 1, span: 22 }}>
         <Row className={styles.startsContainer}>
           <div id={styles.stars}></div>
@@ -55,18 +59,24 @@ const HomPage = () => {
           <div id={styles.stars3}></div>
         </Row>
         <Row className={styles.homePageContainer}>
-          {!isMobile && (
-            <Col sm={{ span: 10 }} className={styles.homePageImageWrapper}>
-              <img
-                className={styles.homePageImage}
-                src='./asset/images/moon.png'
-                alt='Moon'
-              />
-            </Col>
-          )}
           <Col
-            sm={{ span: 14 }}
-            xs={{ span: 24 }}
+            xs={0}
+            sm={0}
+            md={0}
+            lg={10}
+            className={styles.homePageImageWrapper}
+          >
+            <img
+              className={styles.homePageImage}
+              src='./asset/images/moon.png'
+              alt='Moon'
+            />
+          </Col>
+          <Col
+            xs={24}
+            sm={24}
+            md={0}
+            lg={14}
             className={styles.homePageGreeting}
           >
             <Row justify='center' style={{ minWidth: '100%' }}>

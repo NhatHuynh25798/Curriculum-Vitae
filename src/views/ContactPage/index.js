@@ -27,21 +27,19 @@ const ContactPage = () => {
           <H1>Contact</H1>
         </Row>
         <Row justify='space-between' gutter={[32, 0]}>
-          {!isMobile && (
-            <Col sm={{ span: 10 }}>
-              <img
-                className={styles.contactImage}
-                src='./asset/images/contact.png'
-                alt='contact'
-              />
-            </Col>
-          )}
-          <Col sm={{ span: 13 }} xs={{ span: 24 }}>
+          <Col xs={0} lg={0} xl={11}>
+            <img
+              className={styles.contactImage}
+              src='./asset/images/contact.png'
+              alt='contact'
+            />
+          </Col>
+          <Col xs={24} lg={24} xl={13}>
             <Row gutter={[0, 16]} justify='center'>
-              <Col sm={{ span: 24 }} xs={{ span: 24 }}>
+              <Col sm={24} xs={24}>
                 <H4>Leave your contact information:</H4>
               </Col>
-              <Col sm={{ span: 24 }} xs={{ span: 24 }}>
+              <Col sm={24} xs={24}>
                 <Form {...layout} name='basic'>
                   <Form.Item
                     name='name'
